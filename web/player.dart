@@ -75,8 +75,6 @@ class Player{
         
     }
     
-    
-    
   }
 
   /**
@@ -86,4 +84,17 @@ class Player{
     return null;
   }
   
+}
+
+class RandomStrategyPlayer extends Player{
+  RandomStrategyPlayer(Game game, String name, {int type: 0}):
+    super (game, name,type:type){
+    
+    this.name+=" (using random strategy) ";
+  }
+   
+  Function chooseDraft(){
+    remark("Picking up a random card");
+  }
+
 }

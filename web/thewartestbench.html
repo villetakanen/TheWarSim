@@ -12,8 +12,8 @@
     </div>
     
     <div id="controls" game-ctrl>
-      OV <select>
-        <option value="0">-- default strategy --</option>
+      OV <select ng-model="strategyOV" ng-options="s in ctrl.strategies">
+      
       </select>
       FE <select>
         <option value="0">-- default strategy --</option>

@@ -10,6 +10,15 @@ import 'package:angular/angular.dart';
     publishAs: 'ctrl')
 class GameController{
   
+  List<String> strategies;
+  
+  GameController(){
+    strategies=[
+                "-- default --",
+                "Random Decisions"
+                ];
+  }
+  
   Function runWith(int seed){
     Game game=new Game();
     
@@ -35,17 +44,6 @@ class MyAppModule extends Module {
 }
 
 /**
- * @Deprecated: this should not be done like this
- */
-String listToDiv(List a){
-  String rval="<div>";
-  for (String line in a){
-    rval+="<p>"+line+"</p>";
-  }
-  return rval+"</div>";
-}
-
-/**
  * 
  */
 void main() {
@@ -59,4 +57,15 @@ void main() {
   
   querySelector("#gamelog_id")
     ..innerHtml = listToDiv(game.moves);
+}
+
+/**
+ * @Deprecated: this should not be done like this
+ */
+String listToDiv(List a){
+  String rval="<div>";
+  for (String line in a){
+    rval+="<p>"+line+"</p>";
+  }
+  return rval+"</div>";
 }
