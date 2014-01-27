@@ -1,56 +1,28 @@
 <!DOCTYPE html>
-
 <html ng-app>
   <head>
     <meta charset="utf-8">
     <title>TheWarTestbench</title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic,600italic,700italic|Oswald:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="thewar.css">
     <link rel="stylesheet" href="thewartestbench.css">
   </head>
   <body game-ctrl>
     <div id="header">
-    <h4>The War - test run with seed {{gameSeed}}</h4>
+    <h1 class="title">The War - simplified play simulation</h1>
     </div>
     
+    <div id="gamelog_id">
     
-    <div id="proto_info_id">
-    <h1>Proto info</h1>
-      {{protoInfo}}
-      
-      <p>Available strategies</p>
-      <ul>
-        <li class="pointer"
-          ng-repeat="strategy in ctrl.strategies">{{strategy.name}}</li>
-    </ul>
-      
-    </div>
     
-       
-    <div id="controls">
-      <h4>OV</h4>
-      <ul class="select">
-        <li class="unslelected"
-          ng-click="ctrl.setStrategy(0, strategy)"
-          ng-repeat="strategy in ctrl.strategies">{{strategy.name}}</li>
-    </ul>
-      
-      
-      </select>
-      FE <select>
-        <option value="0">-- default strategy --</option>
-      </select>
-      FB <select>
-        <option value="0">-- default strategy --</option>
-      </select><br>
-      Seed <input type="text" ng-model="gameSeed" value="0">
-      <input type="checkbox" ng-model="multipleRuns"> Multiple runs
-      <input type="text" placeholder="Runs" ng-if="multipleRuns"><br>
-      <button ng-click="ctrl.runWith(gameSeed)">Run</button>
-      
-      
+    <h2>Gamelog</h2>
+    <p><input ng-model="note" type="checkbox" value="true" ng-click="ctrl.noteHack(note)"> Hide notes
+    <p><input ng-model="remark" type="checkbox" value="true" ng-click="ctrl.remarkHack(remark)"> Hide remarks
+     
+    
+      <p class="logitem {{line.player}} {{line.level}}"
+          ng-repeat="line in ctrl.gamelog">{{line.gamestate}}</p>    
     </div>
-
-      <div id="gamelog_id">
-      </div>
 
     <script type="application/dart" src="thewartestbench.dart"></script>
     <script src="packages/browser/dart.js"></script>

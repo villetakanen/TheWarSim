@@ -8,17 +8,22 @@ part 'player.dart';
 class Game{
  
   String gameState="None";
+  int movecount=0;
   List<Player> players=[];
-  List<String> moves=[];
+  List<Map> moves=[];
+  List<Card> assetTrack=[];
+  List<Card> assetDeck=[];
+  
   Random random=null;
   
   Game(){
     stateChange("initialized");
   }
   
-  Function stateChange(String state){
-    this.gameState=state;
-    this.moves.add(state);
+  Function stateChange(String state,{String p:"Game", String l:""}){
+    this.gameState=state+"  -- "+movecount.toString();
+    movecount++;
+    this.moves.add({"move":movecount, "gamestate":state, "player":p, "level":l});
   }
   
   Function initalizePlayers(){
@@ -35,6 +40,9 @@ class Game{
     this.random=new Random(seed);
     
     this.initalizePlayers(); 
+    this.assetDeck=Deck.ASSET_DECK_3P;
+    this.assetDeck.shuffle(this.random);
+    
     
     bool gameOver=false;
     
@@ -46,6 +54,8 @@ class Game{
       //Loop players
       for (Player current in this.players){
         
+        this.fillDraft();
+        
         //Play the players turn
         current.playTurn();
         
@@ -56,6 +66,13 @@ class Game{
      
     }
     
+  }
+  
+ 
+  Function fillDraft(){
+    while(this.assetTrack.length<4&&this.assetDeck.isNotEmpty){
+      this.assetTrack.add(this.assetDeck.removeLast());
+    }
   }
 }
 

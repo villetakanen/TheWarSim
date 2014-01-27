@@ -1,5 +1,6 @@
 import 'dart:html';
 import 'game.dart';
+import 'dart:math';
 import 'package:angular/angular.dart';
 
 /**
@@ -9,6 +10,7 @@ import 'package:angular/angular.dart';
     selector: '[game-ctrl]',
     publishAs: 'ctrl')
 class GameController{
+  List<Map> gamelog=[];
   
   List<Strategy> strategies;
   
@@ -16,6 +18,12 @@ class GameController{
     strategies=[new Strategy("-- default --"),
                 new Strategy("Random Decicions")
                 ];
+    
+    Game game=new Game();
+    
+    game.playTrough(seed:0);//new Random().nextInt(27000));
+    
+    gamelog=game.moves;
   }
   
   Function setStrategy(int player, Strategy strategy){
@@ -26,15 +34,25 @@ class GameController{
     Game game=new Game();
     
     if (seed==null){
-      seed=0;
-      game.stateChange("controller forcing seed to 0");
+      //seed=0;
+      //game.stateChange("controller forcing seed to 0");
+      
     }
     
     game.playTrough();
+
     
-    querySelector("#gamelog_id")
-    ..innerHtml = listToDiv(game.moves);
-    
+  }
+  
+  Function noteHack(bool show){
+    for (var elem in querySelectorAll('.note')) { // Find all elements for this OS.
+      elem.hidden = show;      // Show or hide each element.
+    }
+  }
+  Function remarkHack(bool show){
+    for (var elem in querySelectorAll('.remark')) { // Find all elements for this OS.
+      elem.hidden = show;      // Show or hide each element.
+    }
   }
 }
 class Strategy{
@@ -57,21 +75,6 @@ void main() {
   //Bootstrap Angular Framework
   ngBootstrap(module: new MyAppModule());
 
-  Game game=new Game();
-  
-  game.playTrough();
-  
-  querySelector("#gamelog_id")
-    ..innerHtml = listToDiv(game.moves);
 }
 
-/**
- * @Deprecated: this should not be done like this
- */
-String listToDiv(List a){
-  String rval="<div>";
-  for (String line in a){
-    rval+="<p>"+line+"</p>";
-  }
-  return rval+"</div>";
-}
+

@@ -4,7 +4,8 @@ class Player{
   
   Game game;
   String name;
-  bool lastTurn=true;
+  bool lastTurn=false;
+  int influence=0;
   
   List<Card>hand=[];
   List<Card>deck=[];
@@ -18,9 +19,11 @@ class Player{
     switch (type){
       case 3:
         this.name+="/3";
+        this.initDeck(Deck.FB_STARTER);
         break;
       case 2:
         this.name+="/2";
+        this.initDeck(Deck.FE_STARTER);
         break;
       default:
         this.name+="/0";
@@ -33,10 +36,10 @@ class Player{
   }
   
   Function remark(String remark){
-    game.stateChange("&nbsp;&nbsp;&nbsp;:: "+this.name+" ::  "+remark);
+    game.stateChange(" :: "+this.name+" ::  "+remark, l:"remark", p:"player");
   }
   Function note(String remark){
-    game.stateChange("&nbsp;&nbsp;&nbsp;## "+this.name+" ->  "+remark);
+    game.stateChange(" ## "+this.name+" ->  "+remark, l:"note",p:"player");
   }
   
   Function initDeck(List<Card> a){
@@ -50,6 +53,8 @@ class Player{
     
     //Fill hand up to ~5 cards
     this.draw();
+    
+    this.draft();
     
   }
   
@@ -76,12 +81,43 @@ class Player{
     }
     
   }
+  
+  Function draft(){
+    this.influence+=4;
+    
+    if(this.game.assetDeck.isEmpty){
+      this.lastTurn=true;
+      return null;
+    }
+    
+    Card card=this.chooseDraftAsset();
+    
+    if (card!=null && card.cost<=this.influence){
+      this.game.assetTrack.remove(card);
+      this.discard.add(card);
+      card.owner=this;
+      this.remark("Drafted "+card.name);
+    }
+    else this.remark("");
+    
+  }
 
   /**
-   * Function for choosing the card to draft. Override for alternative strategy.
+   * Method for choosing the card to draft. Override for alternative strategy.
    */
-  Function chooseDraft(){
-    return null;
+  Card chooseDraftAsset(){
+    Card chosen=null;
+    double hval=-1.0;
+    for (Card card in game.assetTrack){
+      double cval=(card.influence+card.power+card.veiled_power)/(card.cost+27);
+      if (card.cost<=this.influence && cval>hval){
+        hval=cval;
+        chosen=card;
+        this.note("eval "+cval.toString()+" for "+card.name);
+      }
+    }
+    if (chosen!=null) this.remark("I chose "+chosen.name);
+    return chosen;
   }
   
 }
@@ -93,8 +129,9 @@ class RandomStrategyPlayer extends Player{
     this.name+=" (using random strategy) ";
   }
    
-  Function chooseDraft(){
+  Card chooseDraftAsset(){
     remark("Picking up a random card");
+    return this.game.assetTrack[this.game.random.nextInt(this.game.assetTrack.length-1)];
   }
 
 }

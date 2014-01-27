@@ -11,7 +11,15 @@ body {
 h1, p {
   color: #333;
 }
-
+p.player{
+  padding-left:2rem;
+}
+p.note{
+  color:#777;
+}
+p.remark{
+  color:#2C5;
+}
 
 #gamelog_id p{
   margin: 0;

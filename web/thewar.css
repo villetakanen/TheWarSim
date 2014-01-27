@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+/* CSS Document */
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+.column {
+    vertical-align:top;
+    /*float: left;
+    width:19rem;*/
+   
+}
+
+
+
+h1, h2, h3, h4 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+}
+.title{
+    padding: 1rem;
+    padding-left:7rem;
+    
+}
+.releaseInfo h1 {
+    text-align: center;
+}
+p.data{
+  color:#91129E; 
+    font-weight:600;
+  margin-bottom:0;
+}
+p.data i{
+  color:silver; 
+    font-weight:400;
+}
+
+
+
+.releaseInfo {
+    column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    max-width:17rem;
+    display:inline-block;
+    margin: 0.5rem;
+    -webkit-box-shadow: 0 0 12px 3px rgba(50,40,45,.12);
+box-shadow: 0 0 12px 3px rgba(50,40,45,.12);
+padding:1rem;
+vertical-align:top;
+}
+
+.releaseInfo img {
+    max-width: 100%;
+    display: block;
+}

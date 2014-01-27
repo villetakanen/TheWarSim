@@ -55,7 +55,7 @@ class Cards{
   
   static final Card Remover=new Card("Remover",            1,1,1,7, Card.ASSET,  Card.AGENT);
   
-  static final Card LameSpy=new Card("Lame Spy",            1,1,1,5, Card.ASSET,  Card.AGENT);
+  static final Card LameSpy=new Card("Lame Spy",            0,1,0,9, Card.ASSET,  Card.AGENT);
   
   static final Card Demonstration     =new Card("Demonstrtation",       0,0,0,3, Card.ACTION, Card.TRIFLE);
   static final Card OneWayTicket      =new Card("One Way Ticket",       0,0,0,3, Card.ACTION, Card.RUN);
@@ -63,10 +63,10 @@ class Cards{
   static final Card Protege           =new Card("Protege",              0,1,0,3, Card.ACTION, Card.TRIFLE);
   
   //Cards for the OV Starter Deck
-  static final Card TheGrey           =new Card("The Grey",             0,0,0,3, Card.ASSET, Card.AGENT);
-  static final Card Envoy             =new Card("Envoy",                0,0,0,3, Card.ASSET, Card.AGENT);
-  static final Card CorruptPolitician =new Card("Corrupt Politician",   0,0,0,3, Card.ASSET, Card.AGENT);
-  static final Card YoungIdealist     =new Card("Young Idealist",       0,0,0,3, Card.ASSET, Card.AGENT);
+  static final Card TheGrey           =new Card("The Grey",             2,0,1,9, Card.ASSET, Card.AGENT);
+  static final Card Envoy             =new Card("Envoy",                1,2,0,6, Card.ASSET, Card.AGENT);
+  static final Card CorruptPolitician =new Card("Corrupt Politician",   1,1,0,3, Card.ASSET, Card.AGENT);
+  static final Card YoungIdealist     =new Card("Young Idealist",       0,0,1,1, Card.ASSET, Card.AGENT);
   
   static final Card London            =new Card("London",               0,0,0,3, Card.ASSET, Card.LOCATION);
   static final Card Munich            =new Card("Munich",               1,2,0,0, Card.ASSET, Card.LOCATION);
@@ -77,10 +77,10 @@ class Cards{
   static final Card PowerVacuum       =new Card("Power Vacuum",         0,0,0,3, Card.ACTION, Card.EVENT);
   
   //Cards for the FE Starter Deck
-  static final Card Mary              =new Card("Mary, the Wolf Bride", 0,0,0,3, Card.ASSET, Card.AGENT);
+  static final Card Mary              =new Card("Mary, the Wolf Bride", 1,1,1,0, Card.ASSET, Card.AGENT);
   static final Card Oathbound         =new Card("The Oathbound",        0,0,0,3, Card.ASSET, Card.AGENT);
   static final Card Asatru            =new Card("Asàtrú Punk",          0,0,0,3, Card.ASSET, Card.AGENT);
-  static final Card BikerGang         =new Card("Biker Gang",           0,0,0,3, Card.ASSET, Card.AGENT);
+  static final Card BikerGang         =new Card("Biker Gang",           1,1,0,5, Card.ASSET, Card.AGENT);
   
   static final Card Gothenburg        =new Card("Gothenburg",           0,0,0,3, Card.ASSET, Card.LOCATION);
   static final Card Edinburgh         =new Card("Edinburgh",            1,2,0,0, Card.ASSET, Card.LOCATION);
@@ -118,4 +118,56 @@ class Deck{
                                       Cards.WarCouncil,
                                       Cards.Protege,
                                       Cards.PowerVacuum];
+  static final List<Card> FE_STARTER=[
+                                      Cards.Mary,
+                                      Cards.Oathbound,
+                                      Cards.Asatru ,
+                                      Cards.BikerGang,
+                                      Cards.Gothenburg,
+                                      Cards.Edinburgh,
+                                      Cards.LostPaths,
+                                      Cards.Demonstration,
+                                      Cards.OneWayTicket,
+                                      Cards.ShadowPlay];
+  static final List<Card> FB_STARTER=[
+                                      Cards.YoungIdealist,
+                                      Cards.TheGrey,
+                                      Cards.Envoy ,
+                                      Cards.CorruptPolitician,
+                                      Cards.London,
+                                      Cards.Munich,
+                                      Cards.TheTrenches,
+                                      Cards.WarCouncil,
+                                      Cards.Protege,
+                                      Cards.PowerVacuum];
+  static final List<Card> ASSET_DECK_3P=[
+                                         Cards.Remover,
+                                         Cards.Envoy,
+                                         Cards.CorruptPolitician,
+                                         Cards.BikerGang,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         Cards.LameSpy,
+                                         ];
 }
