@@ -22,7 +22,7 @@ class Card{
   static const String LOCATION="Location";
   static const String RUN="Run";
   static const String TRIFLE="Trifle";
-  static const String Event="Event";
+  static const String EVENT="Event";
    
   Card(this.name, this.influence, this.power, this.veiled_power, this.cost, this.type, this.subtype);
   
@@ -107,12 +107,15 @@ class Deck{
   }
   
   
-  static final List<Card> OVSTARTER=[
-    Cards.TheGrey,
-    Cards.Envoy,
-    Cards.CorruptPolitician,
-    Cards.YoungIdealist,
-    Cards.London,
-    Cards.Munich,
-    Cards.TheTrenches];
+  static final List<Card> OV_STARTER=[
+                                      Cards.YoungIdealist,
+                                      Cards.TheGrey,
+                                      Cards.Envoy ,
+                                      Cards.CorruptPolitician,
+                                      Cards.London,
+                                      Cards.Munich,
+                                      Cards.TheTrenches,
+                                      Cards.WarCouncil,
+                                      Cards.Protege,
+                                      Cards.PowerVacuum];
 }

@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 
-<html>
+<html ng-app>
   <head>
     <meta charset="utf-8">
     <title>TheWarTestbench</title>
     <link rel="stylesheet" href="thewartestbench.css">
   </head>
   <body>
+    <div id="header">
+    <h4>The War - test run with seed {{gameSeed}}</h4>
+    </div>
+    
+    <div id="controls" game-ctrl>
+      OV <select>
+        <option value="0">-- default strategy --</option>
+      </select>
+      FE <select>
+        <option value="0">-- default strategy --</option>
+      </select>
+      FB <select>
+        <option value="0">-- default strategy --</option>
+      </select><br>
+      Seed <input type="text" ng-model="gameSeed" value="0">
+      <input type="checkbox" ng-model="multipleRuns"> Multiple runs
+      <input type="text" placeholder="Runs" ng-if="multipleRuns"><br>
+      <button ng-click="ctrl.runWith(gameSeed)">Run</button>
+    </div>
 
       <div id="gamelog_id">
       </div>

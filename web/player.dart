@@ -11,18 +11,6 @@ class Player{
   List<Card>discard=[];
   List<Card>inplay=[];
   
-  static final List<Card> OV_STARTER=[
-                                      Cards.YoungIdealist,
-                                      Cards.TheGrey,
-                                      Cards.Envoy ,
-                                      Cards.CorruptPolitician,
-                                      Cards.London,
-                                      Cards.Munich,
-                                      Cards.TheTrenches,
-                                      Cards.WarCouncil,
-                                      Cards.Protege,
-                                      Cards.PowerVacuum];
-  
   Player(Game this.game, String this.name, {int type: 0}){
     
     
@@ -36,7 +24,7 @@ class Player{
         break;
       default:
         this.name+="/0";
-        this.initDeck(OV_STARTER);
+        this.initDeck(Deck.OV_STARTER);
     }
     
     this.draw();

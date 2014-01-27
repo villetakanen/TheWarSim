@@ -1,5 +1,5 @@
 name: TheWarTestbench
 description: A sample web application
 dependencies:
-  angular: any
+  angular: 0.9.4
   browser: any
