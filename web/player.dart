@@ -60,19 +60,22 @@ class Player{
   }
   
   Function playTurn(){
-    this.remark("Starting turn");
+    
+    remark("Starting turn");
     
     //Fill hand up to ~5 cards
-    this.draw();
+    draw();
     
-    this.playAssets();
+    playAssets();
     
-    this.draft();
+    draft();
     
     this.influence+=influencePotential();
-    this.remark("ending turn with "+this.influence.toString()+" influene");
+    
+    remark("ending turn with "+this.influence.toString()+" influene");
     
   }
+  
   int influencePotential(){
     int potential=0;
     for (Card card in this.inplay){
@@ -80,6 +83,22 @@ class Player{
       this.note(card.name+" for"+card.influence.toString());
     }
     return potential;
+  }
+  
+  int power(){
+    int p=0;
+    for (Card card in this.inplay){
+      p+=card.power;
+    }
+    return p;
+  }
+  
+  int endpower(){
+    int p=this.power();
+    for (Card card in this.hand){
+      p+=card.power;
+    }
+    return p;
   }
   
   Function draw(){
@@ -176,7 +195,10 @@ class Player{
     Card chosen=null;
     double hval=-1.0;
     for (Card card in game.assetTrack){
-      double cval=(card.influence+card.power+card.veiled_power)/(card.cost+27);
+      double cval=0.0;
+      if (this.influencePotential()<6) cval=(card.influence*2+card.power)/(card.cost+27);
+      else cval=(card.power*2+card.veiled_power)/(card.cost+27);
+      
       if (card.cost<=this.influence && cval>hval){
         hval=cval;
         chosen=card;

@@ -65,6 +65,11 @@ class Card{
     return i;
   }
   
+  Card clone(){
+    return new Card(this.name, this.influence, this.power,
+        this.veiled_power, this.cost, this.type, this.subtype);
+  }
+  
 }
 class Cards{
   
@@ -82,13 +87,13 @@ class Cards{
   static final Card Protege           =new Card("Protege",              0,1,0,3, Card.ACTION, Card.TRIFLE);
   
   //Cards for the OV Starter Deck
-  static final Card TheGrey           =new Card("The Grey",             2,0,1,9, Card.ASSET, Card.AGENT);
+  static final Card TheGrey           =new Card("The Grey",             2,0,1,0, Card.ASSET, Card.AGENT);
   static final Card Envoy             =new Card("Envoy",                1,2,0,6, Card.ASSET, Card.AGENT);
   static final Card CorruptPolitician =new Card("Corrupt Politician",   1,1,0,3, Card.ASSET, Card.AGENT);
-  static final Card YoungIdealist     =new Card("Young Idealist",       0,0,1,1, Card.ASSET, Card.AGENT);
+  static const String YoungIdealist     ="Young Idealist";
   
-  static final Card London            =new Card("London",               0,0,0,3, Card.ASSET, Card.LOCATION);
-  static final Card Munich            =new Card("Munich",               1,2,0,0, Card.ASSET, Card.LOCATION);
+  static final Card London            =new Card("London",               1,1,0,0, Card.ASSET, Card.LOCATION);
+  static final Card Munich            =new Card("Munich",               0,2,0,0, Card.ASSET, Card.LOCATION);
   static final Card TheTrenches       =new Card("The Trenches",         0,1,1,0, Card.ASSET, Card.LOCATION);
   
   static final Card WarCouncil        =new Card("War Council",          1,1,0,3, Card.ACTION, Card.EVENT);
@@ -109,6 +114,12 @@ class Cards{
   //-> One Way Ticket
   //-> Demonstration
   
+  //Cards for the FB Starter deck
+  static final Card ProtocolZero      =new Card("Protocol Zero",        0,2,1,0, Card.ASSET, Card.AGENT);
+  static final Card SecOps            =new Card("SecOps",               0,2,0,0, Card.ASSET, Card.AGENT); 
+  static final Card Operator          =new Card("Echelon Operator",     1,0,0,0, Card.ASSET, Card.AGENT); 
+  
+  static final Card HongKong          =new Card("Hong Kong",            2,1,0,0, Card.ASSET, Card.AGENT);
 }
 class Deck{
   
@@ -127,66 +138,66 @@ class Deck{
   
   
   static final List<Card> OV_STARTER=[
-                                      Cards.YoungIdealist,
-                                      Cards.TheGrey,
-                                      Cards.Envoy ,
-                                      Cards.CorruptPolitician,
-                                      Cards.London,
-                                      Cards.Munich,
-                                      Cards.TheTrenches,
-                                      Cards.WarCouncil,
-                                      Cards.Protege,
-                                      Cards.PowerVacuum];
+    new Card(Cards.YoungIdealist,0,0,1,1, Card.ASSET, Card.AGENT),
+                                      Cards.TheGrey.clone(),
+                                      Cards.Envoy.clone() ,
+                                      Cards.CorruptPolitician.clone(),
+                                      Cards.London.clone(),
+                                      Cards.Munich.clone(),
+                                      Cards.TheTrenches.clone(),
+                                      Cards.WarCouncil.clone(),
+                                      Cards.Protege.clone(),
+                                      Cards.PowerVacuum.clone()];
   static final List<Card> FE_STARTER=[
-                                      Cards.Mary,
-                                      Cards.Oathbound,
-                                      Cards.Asatru ,
-                                      Cards.BikerGang,
-                                      Cards.Gothenburg,
-                                      Cards.Edinburgh,
-                                      Cards.LostPaths,
-                                      Cards.Demonstration,
-                                      Cards.OneWayTicket,
-                                      Cards.ShadowPlay];
+                                      Cards.Mary.clone(),
+                                      Cards.Oathbound.clone(),
+                                      Cards.Asatru.clone() ,
+                                      Cards.BikerGang.clone(),
+                                      Cards.Gothenburg.clone(),
+                                      Cards.Edinburgh.clone(),
+                                      Cards.LostPaths.clone(),
+                                      Cards.Demonstration.clone(),
+                                      Cards.OneWayTicket.clone(),
+                                      Cards.ShadowPlay.clone()];
   static final List<Card> FB_STARTER=[
-                                      Cards.YoungIdealist,
-                                      Cards.TheGrey,
-                                      Cards.Envoy ,
-                                      Cards.CorruptPolitician,
-                                      Cards.London,
-                                      Cards.Munich,
-                                      Cards.TheTrenches,
-                                      Cards.WarCouncil,
-                                      Cards.Protege,
-                                      Cards.PowerVacuum];
+                                      Cards.SecOps.clone(),
+                                      Cards.ProtocolZero.clone(),
+                                      Cards.HongKong.clone() ,
+                                      Cards.Operator.clone(),
+                                      Cards.London.clone(),
+                                      Cards.Munich.clone(),
+                                      Cards.TheTrenches.clone(),
+                                      Cards.WarCouncil.clone(),
+                                      Cards.Protege.clone(),
+                                      Cards.PowerVacuum.clone()];
   static final List<Card> ASSET_DECK_3P=[
-                                         Cards.Remover,
-                                         Cards.Envoy,
-                                         Cards.CorruptPolitician,
-                                         Cards.BikerGang,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
-                                         Cards.LameSpy,
+                                         Cards.Remover.clone(),
+                                         Cards.Envoy.clone(),
+                                         Cards.CorruptPolitician.clone(),
+                                         Cards.BikerGang.clone(),
+                                         Cards.ConsTroll.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
+                                         Cards.LameSpy.clone(),
                                          ];
 }

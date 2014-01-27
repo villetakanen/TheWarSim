@@ -11,7 +11,7 @@ import 'package:angular/angular.dart';
     publishAs: 'ctrl')
 class GameController{
   List<Map> gamelog=[];
-  
+  String result;
   List<Strategy> strategies;
   
   GameController(){
@@ -24,6 +24,7 @@ class GameController{
     game.playTrough(seed:0);//new Random().nextInt(27000));
     
     gamelog=game.moves;
+    result=game.gameState;
   }
   
   Function setStrategy(int player, Strategy strategy){
