@@ -28,12 +28,15 @@ class Card{
   
   Function toPlay(Player a){
     a.inplay.add(this);
+    print("card "+this.name+" owner set to "+a.name);
     this.owner=a;
   }
   
   Function playOn(Card a){
     if (!a.owner.inplay.contains(this)){
       this.toPlay(a.owner);
+    }else{
+      a.owner.announce("WTF!");
     }
     this.cardsOnCard.add(a);
   }
@@ -50,12 +53,28 @@ class Card{
     }
     
   }
+  
+  /**
+   * Count the height of card stack from this card
+   */
+  int stackHeight(){
+    int i=1;
+    for (Card child in cardsOnCard){
+      i+=stackHeight();
+    }
+    return i;
+  }
+  
 }
 class Cards{
   
   static final Card Remover=new Card("Remover",            1,1,1,7, Card.ASSET,  Card.AGENT);
   
   static final Card LameSpy=new Card("Lame Spy",            0,1,0,9, Card.ASSET,  Card.AGENT);
+  static final Card ConsTroll         =new Card("Conservative Troll",   0,1,0,3, Card.ASSET,  Card.AGENT);
+  //static final Card LameSpy=new Card("Lame Spy",            0,1,0,9, Card.ASSET,  Card.AGENT);
+  //static final Card LameSpy=new Card("Lame Spy",            0,1,0,9, Card.ASSET,  Card.AGENT);
+  //static final Card LameSpy=new Card("Lame Spy",            0,1,0,9, Card.ASSET,  Card.AGENT);
   
   static final Card Demonstration     =new Card("Demonstrtation",       0,0,0,3, Card.ACTION, Card.TRIFLE);
   static final Card OneWayTicket      =new Card("One Way Ticket",       0,0,0,3, Card.ACTION, Card.RUN);

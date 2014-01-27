@@ -15,7 +15,8 @@ p.player{
   padding-left:2rem;
 }
 p.note{
-  color:#777;
+  color:#DDD;
+  font-variant: italic;
 }
 p.remark{
   color:#2C5;

@@ -5,7 +5,7 @@ class Player{
   Game game;
   String name;
   bool lastTurn=false;
-  int influence=0;
+  int influence=5;
   
   List<Card>hand=[];
   List<Card>deck=[];
@@ -34,10 +34,21 @@ class Player{
     this.remark("initialized");
     
   }
-  
+  /**
+   * Post game info to game log
+   */
+  Function announce(String remark){
+    game.stateChange(this.name+": "+remark, p:"player",l:"PA");
+  }
+  /**
+   * Post a remark to game log
+   */
   Function remark(String remark){
     game.stateChange(" :: "+this.name+" ::  "+remark, l:"remark", p:"player");
   }
+  /**
+   * Make an AI mental note to the gamelog
+   */
   Function note(String remark){
     game.stateChange(" ## "+this.name+" ->  "+remark, l:"note",p:"player");
   }
@@ -54,8 +65,21 @@ class Player{
     //Fill hand up to ~5 cards
     this.draw();
     
+    this.playAssets();
+    
     this.draft();
     
+    this.influence+=influencePotential();
+    this.remark("ending turn with "+this.influence.toString()+" influene");
+    
+  }
+  int influencePotential(){
+    int potential=0;
+    for (Card card in this.inplay){
+      potential+=card.influence;
+      this.note(card.name+" for"+card.influence.toString());
+    }
+    return potential;
   }
   
   Function draw(){
@@ -82,8 +106,48 @@ class Player{
     
   }
   
+  Function playAssets(){
+    
+    int i=0;
+    while (i<this.hand.length){
+      Card card=this.hand[i];
+      if(card.subtype==Card.LOCATION){
+        this.hand.remove(card);
+        card.toPlay(this);
+        remark("Asset to play:"+card.name);
+      }
+      else i++;
+    }
+    
+    List<Card> locationsInPlay=inplay.where((i) => i.subtype==Card.LOCATION).toList();
+    
+    i=0;
+    while (i<this.hand.length){
+      Card card=this.hand[i];
+      if(card.subtype==Card.AGENT){
+        this.hand.remove(card);
+        int hval=10000;
+        for (Card location in locationsInPlay){
+          if (location.stackHeight()<hval){
+            hval=location.stackHeight();
+            
+            print(location.name+" / "+card.name);
+            
+            card.playOn(location);
+            remark("Agent "+card.name+" to play on "+location.name);
+          }
+        }
+        if (hval==10000){
+          card.toPlay(this);
+          remark("Agent "+card.name+" to play as a Free Agent");
+        }
+      }
+      else i++;
+    }
+    
+  }
+  
   Function draft(){
-    this.influence+=4;
     
     if(this.game.assetDeck.isEmpty){
       this.lastTurn=true;
@@ -93,12 +157,15 @@ class Player{
     Card card=this.chooseDraftAsset();
     
     if (card!=null && card.cost<=this.influence){
+      
       this.game.assetTrack.remove(card);
       this.discard.add(card);
       card.owner=this;
-      this.remark("Drafted "+card.name);
+      this.influence-=card.cost;
+      this.announce("Drafted "+card.name+" with "+card.cost.toString());
+      
     }
-    else this.remark("");
+    else this.remark("Did not draft");
     
   }
 
@@ -116,7 +183,8 @@ class Player{
         this.note("eval "+cval.toString()+" for "+card.name);
       }
     }
-    if (chosen!=null) this.remark("I chose "+chosen.name);
+    if (chosen!=null) this.note("I chose "+chosen.name);
+    else this.note("did not pick a card");
     return chosen;
   }
   
@@ -130,7 +198,8 @@ class RandomStrategyPlayer extends Player{
   }
    
   Card chooseDraftAsset(){
-    remark("Picking up a random card");
+    note("Picking up a random card");
+    if (this.game.assetDeck.isEmpty) return null;
     return this.game.assetTrack[this.game.random.nextInt(this.game.assetTrack.length-1)];
   }
 
