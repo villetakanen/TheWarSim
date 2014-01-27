@@ -6,13 +6,33 @@
     <title>TheWarTestbench</title>
     <link rel="stylesheet" href="thewartestbench.css">
   </head>
-  <body>
+  <body game-ctrl>
     <div id="header">
     <h4>The War - test run with seed {{gameSeed}}</h4>
     </div>
     
-    <div id="controls" game-ctrl>
-      OV <select ng-model="strategyOV" ng-options="s in ctrl.strategies">
+    
+    <div id="proto_info_id">
+    <h1>Proto info</h1>
+      {{protoInfo}}
+      
+      <p>Available strategies</p>
+      <ul>
+        <li class="pointer"
+          ng-repeat="strategy in ctrl.strategies">{{strategy.name}}</li>
+    </ul>
+      
+    </div>
+    
+       
+    <div id="controls">
+      <h4>OV</h4>
+      <ul class="select">
+        <li class="unslelected"
+          ng-click="ctrl.setStrategy(0, strategy)"
+          ng-repeat="strategy in ctrl.strategies">{{strategy.name}}</li>
+    </ul>
+      
       
       </select>
       FE <select>
@@ -25,6 +45,8 @@
       <input type="checkbox" ng-model="multipleRuns"> Multiple runs
       <input type="text" placeholder="Runs" ng-if="multipleRuns"><br>
       <button ng-click="ctrl.runWith(gameSeed)">Run</button>
+      
+      
     </div>
 
       <div id="gamelog_id">

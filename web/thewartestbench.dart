@@ -10,13 +10,16 @@ import 'package:angular/angular.dart';
     publishAs: 'ctrl')
 class GameController{
   
-  List<String> strategies;
+  List<Strategy> strategies;
   
   GameController(){
-    strategies=[
-                "-- default --",
-                "Random Decisions"
+    strategies=[new Strategy("-- default --"),
+                new Strategy("Random Decicions")
                 ];
+  }
+  
+  Function setStrategy(int player, Strategy strategy){
+    
   }
   
   Function runWith(int seed){
@@ -34,7 +37,10 @@ class GameController{
     
   }
 }
-
+class Strategy{
+  String name;
+  Strategy(this.name);
+}
 
 class MyAppModule extends Module {
   MyAppModule() {
