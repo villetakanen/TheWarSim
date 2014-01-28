@@ -150,7 +150,7 @@ class Player{
           if (location.stackHeight()<hval){
             hval=location.stackHeight();
             
-            print(location.name+" / "+card.name);
+            //print(location.name+" / "+card.name);
             
             card.playOn(location);
             remark("Agent "+card.name+" to play on "+location.name);
@@ -208,6 +208,25 @@ class Player{
     if (chosen!=null) this.note("I chose "+chosen.name);
     else this.note("did not pick a card");
     return chosen;
+  }
+  
+}
+class InPlay{
+  
+  List<Card> inPlay=[];
+  List<Card> onTable=[];
+  Player player;
+  
+  InPlay(this.player);
+  
+  Function toPlay(Card card){
+    this.inPlay.add(card);
+    card.owner=player;
+  }
+  
+  Function toTable(Card card){
+    this.onTable.add(card);
+    toPlay(card);
   }
   
 }

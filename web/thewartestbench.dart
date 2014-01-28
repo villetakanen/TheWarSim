@@ -23,7 +23,7 @@ class GameController{
     
     game.playTrough(seed:0);//new Random().nextInt(27000));
     
-    gamelog=game.moves;
+    gamelog=game.moves.where((Map i) => i["level"]!="note").toList();
     result=game.gameState;
   }
   

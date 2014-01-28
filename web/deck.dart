@@ -28,7 +28,7 @@ class Card{
   
   Function toPlay(Player a){
     a.inplay.add(this);
-    print("card "+this.name+" owner set to "+a.name);
+    //print("card "+this.name+" owner set to "+a.name);
     this.owner=a;
   }
   
@@ -73,7 +73,14 @@ class Card{
 }
 class Cards{
   
+  static const String ConservativeTroll = "Conservative Troll";
+  static const String Theorist = "Conspiracy Theorist";
+  static const String YoungIdealist     ="Young Idealist";
+  static final String CorruptPolitician ="Corrupt Politician";
+  static final String Advocate ="Democracy Advocate";
+  
   static final Card Remover=new Card("Remover",            1,1,1,7, Card.ASSET,  Card.AGENT);
+  
   
   static final Card LameSpy=new Card("Lame Spy",            0,1,0,9, Card.ASSET,  Card.AGENT);
   static final Card ConsTroll         =new Card("Conservative Troll",   0,1,0,3, Card.ASSET,  Card.AGENT);
@@ -89,8 +96,7 @@ class Cards{
   //Cards for the OV Starter Deck
   static final Card TheGrey           =new Card("The Grey",             2,0,1,0, Card.ASSET, Card.AGENT);
   static final Card Envoy             =new Card("Envoy",                1,2,0,6, Card.ASSET, Card.AGENT);
-  static final Card CorruptPolitician =new Card("Corrupt Politician",   1,1,0,3, Card.ASSET, Card.AGENT);
-  static const String YoungIdealist     ="Young Idealist";
+  
   
   static final Card London            =new Card("London",               1,1,0,0, Card.ASSET, Card.LOCATION);
   static final Card Munich            =new Card("Munich",               0,2,0,0, Card.ASSET, Card.LOCATION);
@@ -139,9 +145,9 @@ class Deck{
   
   static final List<Card> OV_STARTER=[
     new Card(Cards.YoungIdealist,0,0,1,1, Card.ASSET, Card.AGENT),
+    new Card(Cards.CorruptPolitician,1,1,1,3, Card.ASSET, Card.AGENT),
                                       Cards.TheGrey.clone(),
                                       Cards.Envoy.clone() ,
-                                      Cards.CorruptPolitician.clone(),
                                       Cards.London.clone(),
                                       Cards.Munich.clone(),
                                       Cards.TheTrenches.clone(),
@@ -171,9 +177,14 @@ class Deck{
                                       Cards.Protege.clone(),
                                       Cards.PowerVacuum.clone()];
   static final List<Card> ASSET_DECK_3P=[
+    new Card(Cards.ConservativeTroll, 0,1,0,3, Card.ASSET, Card.AGENT),
+    new Card(Cards.Advocate,          0,1,0,3, Card.ASSET, Card.AGENT),
+    new Card(Cards.Theorist,          0,1,1,4, Card.ASSET, Card.AGENT),
+    new Card(Cards.CorruptPolitician, 1,1,1,3, Card.ASSET, Card.AGENT),
+    
                                          Cards.Remover.clone(),
                                          Cards.Envoy.clone(),
-                                         Cards.CorruptPolitician.clone(),
+
                                          Cards.BikerGang.clone(),
                                          Cards.ConsTroll.clone(),
                                          Cards.LameSpy.clone(),
