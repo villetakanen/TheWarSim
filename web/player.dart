@@ -71,6 +71,7 @@ class Player{
   Function initDeck(List<Card> a){
     this.deck=[];
       this.deck.addAll(a);
+      this.deck.shuffle(this.game.random);
    
   }
   
@@ -141,23 +142,24 @@ class Player{
       else i++;
     }
     
+    //Go tr
     i=0;
     while (i<this.hand.length){
       Card card=this.hand[i];
+      Card target=null;
       if(card.subtype==Card.AGENT){
         this.hand.remove(card);
         int hval=10000;
         for (Card location in inplay.getLocations()){
           if (location.stackHeight()<hval){
-            hval=location.stackHeight();
-            
-            //print(location.name+" / "+card.name);
-            
-            card.playOn(location);
-            remark("Agent "+card.name+" to play on "+location.name);
+            hval=location.stackHeight();            
+            target=location;
           }
         }
-        if (hval==10000){
+        if (target!=null){
+          card.playOn(target);
+        }
+        else{
           this.inplay.toTable(card);
           remark("Agent "+card.name+" to play as a Free Agent");
         }
@@ -256,7 +258,6 @@ class InPlay{
     int potential=0;
     for (Card card in this.inPlay){
       potential+=card.influence;
-      player.note(card.name+" for"+card.influence.toString());
     }
     return potential;
   }

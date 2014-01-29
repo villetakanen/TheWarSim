@@ -1,39 +1,4 @@
-<!DOCTYPE html>
-<html ng-app>
-<head>
-<meta charset="utf-8">
-<title>TheWarTestbench</title>
-<link
-  href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic,600italic,700italic|Oswald:400,300'
-  rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="thewar.css">
-<link rel="stylesheet" href="thewartestbench.css">
-</head>
-<body game-ctrl>
-  <div id="header">
-    <h1 class="title">The War - simplified play simulation</h1>
-    <p>{{ctrl.result}}</p>
-  </div>
-  
-  <div id="controls_id">
-    <button ng-click="ctrl.runWith()">Rerun with random seed</button>
-  </div>
-
-  <div id="gamelog_id">
-
-
-    <h2>Gamelog</h2>
-    <p>
-      <input ng-model="note" type="checkbox" value="true"
-        ng-click="ctrl.noteHack(note)"> Hide notes
-    <p>
-      <input ng-model="remark" type="checkbox" value="true"
-        ng-click="ctrl.remarkHack(remark)"> Hide remarks
-    <p class="logitem {{line.player}} {{line.level}}"
-      ng-repeat="line in ctrl.gamelog">{{line.gamestate}}</p>
-  </div>
-
-<div id="game_info_id">
+div id="game_info_id">
     <div class="player_info">
       <h2>Ordo Vellum +{{ctrl.game.players[0].endpower()}}</h2>
       <h4>In play +{{ctrl.game.players[0].inplay.influencePotential()}}i</h4>
@@ -112,10 +77,3 @@
     
 
   </div>
-
-  
-
-  <script type="application/dart" src="thewartestbench.dart"></script>
-  <script src="packages/browser/dart.js"></script>
-</body>
-</html>

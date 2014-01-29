@@ -15,17 +15,63 @@ p.player{
   padding-left:2rem;
 }
 p.note{
-  color:#DDD;
+  color:#9b9;
   font-variant: italic;
 }
 p.remark{
   color:#2C5;
 }
+#game_info_id{
+  column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    max-width:40rem;
+    float:left;
+    margin: 0.5rem;
+    -webkit-box-shadow: 0 0 12px 3px rgba(50,40,45,.12);
+box-shadow: 0 0 12px 3px rgba(50,40,45,.12);
+padding:1rem;
+vertical-align:top;
+  
+}
+div.player_info:FIRST-CHILD{
+  border:none;
+  padding-left:0px;
+}
+
+div.player_info{
+  border-left:1px solid magenta;
+  display:inline-block;
+  vertical-align: top;
+  padding-left:0.5rem;
+}
+#inplay_id{
+  border:solid 1px cyan;
+  padding: 0.5rem;
+  margin: 1rem;
+  float: left;
+  background-color:RGBA(150,190,200,0.2);
+}
+ul.inplay{
+  border:solid 1px cyan;
+  padding:1.5rem;
+  margin:0.5rem;
+  display:inline-block;
+  background-color:RGBA(255,255,255,0.7);
+}
+
+#gamelog_id{
+  border:solid 1px magenta;
+  padding: 0.5rem;
+  margin: 1rem;
+  float: left;
+  background-color:RGBA(200,150,190,0.2);
+}
 
 #gamelog_id p{
-  margin: 0;
+  margin: 0rem;
   font-family:Source Code Pro, sans-serfif;
-
+  font-size:small;
 }
 #proto_info_id{
   width:11rem;

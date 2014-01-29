@@ -1,7 +1,9 @@
 library game_library;
 
 import 'dart:math';
+//import 'thewartestbench.dart';
 
+part 'card.dart';
 part 'deck.dart';
 part 'player.dart';
 
@@ -40,7 +42,8 @@ class Game{
     this.random=new Random(seed);
     
     this.initalizePlayers(); 
-    this.assetDeck=Deck.ASSET_DECK_3P;
+    this.assetDeck=[];
+    this.assetDeck.addAll(Deck.ASSET_DECK_3P);
     this.assetDeck.shuffle(this.random);
     
     

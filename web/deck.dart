@@ -1,59 +1,6 @@
 part of game_library;
 
-class Card{
-  
-  String name;
-  int influence;
-  int power;
-  int veiled_power;
-  int cost;
-  String type;
-  String subtype;
-  
-  Player owner;
-  Game game;
-  
-  Card parent;
-  List<Card> cardsOnCard=[];
-  
-  static const String ACTION="Action";
-  static const String ASSET="Asset";
-  
-  static const String AGENT="Agent";
-  static const String LOCATION="Location";
-  static const String RUN="Run";
-  static const String TRIFLE="Trifle";
-  static const String EVENT="Event";
-   
-  Card(this.name, this.influence, this.power, this.veiled_power, this.cost, this.type, this.subtype);
-  
-  Function playOn(Card a){
-    if (a.owner==null) throw new ArgumentError("trying to play a card on an uncontrolled card");
-    a.owner.inplay.toPlay(a);
-    this.cardsOnCard.add(a);
-  }
-  
-  /**
-   * Count the height of card stack from this card
-   */
-  int stackHeight(){
-    int i=1;
-    for (Card child in cardsOnCard){
-      i+=stackHeight();
-    }
-    return i;
-  }
-  
-  Card clone(){
-    return new Card(this.name, this.influence, this.power,
-        this.veiled_power, this.cost, this.type, this.subtype);
-  }
-  
-  String toString(){
-    return this.name;
-  }
-  
-}
+
 class Cards{
   
   static const String ConservativeTroll = "Conservative Troll";
@@ -62,6 +9,11 @@ class Cards{
   static final String CorruptPolitician ="Corrupt Politician";
   static final String Advocate ="Democracy Advocate";
   static final String Barcelona="Barcelona";
+  
+  static final String Immateria="Immateria";
+  static final String NewYork="New York";
+  static final String Shanghai="Shanghai";
+  static final String StPetersburg="St. Petersburg";
   static final String Tokyo="Tokyo";
   static final String Warsaw="Warsaw";
   
@@ -167,11 +119,14 @@ class Deck{
     new Card(Cards.Advocate,          0,1,0,3, Card.ASSET, Card.AGENT),
     new Card(Cards.Theorist,          0,1,1,4, Card.ASSET, Card.AGENT),
     new Card(Cards.CorruptPolitician, 1,1,1,3, Card.ASSET, Card.AGENT),
-    new Card(Cards.Barcelona,         1,1,1,5, Card.ASSET, Card.LOCATION),
+    
+    new Card(Cards.Barcelona,         1,1,2,5, Card.ASSET, Card.LOCATION),
+    new Card(Cards.Immateria,         0,1,2,5, Card.ASSET, Card.LOCATION),
+    new Card(Cards.NewYork,           1,3,0,7, Card.ASSET, Card.LOCATION),
+    new Card(Cards.Shanghai,          1,3,0,7, Card.ASSET, Card.LOCATION),
+    new Card(Cards.StPetersburg,      1,4,0,9, Card.ASSET, Card.LOCATION),
     new Card(Cards.Tokyo,             0,2,0,5, Card.ASSET, Card.LOCATION),
     new Card(Cards.Warsaw,            1,2,0,6, Card.ASSET, Card.LOCATION),
     
-    new Card(Cards.CorruptPolitician, 1,1,1,3, Card.ASSET, Card.AGENT),
-    new Card(Cards.CorruptPolitician, 1,1,1,3, Card.ASSET, Card.AGENT),
                                          ];
 }

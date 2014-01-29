@@ -1,6 +1,7 @@
 import 'dart:html';
+//import 'dart:async';
 import 'game.dart';
-//import 'dart:math';
+import 'dart:math';
 import 'package:angular/angular.dart';
 
 /**
@@ -10,7 +11,11 @@ import 'package:angular/angular.dart';
     selector: '[game-ctrl]',
     publishAs: 'ctrl')
 class GameController{
+  Game game;
   List<Map> gamelog=[];
+  List<Card> inplay=null;
+  List<Card> inplay2=null;
+  List<Card> inplay3=null;
   String result;
   List<Strategy> strategies;
   
@@ -19,30 +24,38 @@ class GameController{
                 new Strategy("Random Decicions")
                 ];
     
-    Game game=new Game();
+    game=new Game();
     
     game.playTrough(seed:0);//new Random().nextInt(27000));
     
     //gamelog=game.moves.where((Map i) => i["level"]!="note").toList();
     gamelog=game.moves;
     result=game.gameState;
+    inplay=game.players[0].inplay.onTable;
+    inplay2=game.players[1].inplay.onTable;
+    inplay3=game.players[2].inplay.onTable;
+
   }
+  
+  
   
   Function setStrategy(int player, Strategy strategy){
     
   }
   
-  Function runWith(int seed){
+  Function runWith({int seed}){
     Game game=new Game();
     
     if (seed==null){
-      //seed=0;
-      //game.stateChange("controller forcing seed to 0");
+      int seed=new Random().nextInt(10000);
+      game.stateChange("controller forcing seed to "+seed.toString());
       
     }
     
     game.playTrough();
-
+    gamelog=null;
+    gamelog=game.moves;
+    result=game.gameState;
     
   }
   
