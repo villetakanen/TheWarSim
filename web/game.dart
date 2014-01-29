@@ -68,7 +68,10 @@ class Game{
     int maxPower=0;
     Player winner=null;
     for (Player player in players){
-      if (player.endpower()>maxPower) winner=player;
+      if (player.endpower()>maxPower){
+        winner=player;
+        maxPower=winner.endpower();
+      }
     }
     stateChange("Winner is "+winner.name +" with "+winner.endpower().toString()+" power");
     

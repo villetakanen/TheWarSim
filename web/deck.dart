@@ -11,6 +11,7 @@ class Card{
   String subtype;
   
   Player owner;
+  Game game;
   
   Card parent;
   List<Card> cardsOnCard=[];
@@ -26,32 +27,10 @@ class Card{
    
   Card(this.name, this.influence, this.power, this.veiled_power, this.cost, this.type, this.subtype);
   
-  Function toPlay(Player a){
-    a.inplay.add(this);
-    //print("card "+this.name+" owner set to "+a.name);
-    this.owner=a;
-  }
-  
   Function playOn(Card a){
-    if (!a.owner.inplay.contains(this)){
-      this.toPlay(a.owner);
-    }else{
-      a.owner.announce("WTF!");
-    }
+    if (a.owner==null) throw new ArgumentError("trying to play a card on an uncontrolled card");
+    a.owner.inplay.toPlay(a);
     this.cardsOnCard.add(a);
-  }
-  
-  Function burn(){
-    for (Card child in cardsOnCard){
-      child.burn();
-    }
-    this.cardsOnCard=[];
-    parent.cardsOnCard.remove(this);
-    if (this.owner!=null){
-      owner.inplay.remove(this);
-      owner.discard.add(this);
-    }
-    
   }
   
   /**
@@ -70,6 +49,10 @@ class Card{
         this.veiled_power, this.cost, this.type, this.subtype);
   }
   
+  String toString(){
+    return this.name;
+  }
+  
 }
 class Cards{
   
@@ -78,6 +61,9 @@ class Cards{
   static const String YoungIdealist     ="Young Idealist";
   static final String CorruptPolitician ="Corrupt Politician";
   static final String Advocate ="Democracy Advocate";
+  static final String Barcelona="Barcelona";
+  static final String Tokyo="Tokyo";
+  static final String Warsaw="Warsaw";
   
   static final Card Remover=new Card("Remover",            1,1,1,7, Card.ASSET,  Card.AGENT);
   
@@ -181,34 +167,11 @@ class Deck{
     new Card(Cards.Advocate,          0,1,0,3, Card.ASSET, Card.AGENT),
     new Card(Cards.Theorist,          0,1,1,4, Card.ASSET, Card.AGENT),
     new Card(Cards.CorruptPolitician, 1,1,1,3, Card.ASSET, Card.AGENT),
+    new Card(Cards.Barcelona,         1,1,1,5, Card.ASSET, Card.LOCATION),
+    new Card(Cards.Tokyo,             0,2,0,5, Card.ASSET, Card.LOCATION),
+    new Card(Cards.Warsaw,            1,2,0,6, Card.ASSET, Card.LOCATION),
     
-                                         Cards.Remover.clone(),
-                                         Cards.Envoy.clone(),
-
-                                         Cards.BikerGang.clone(),
-                                         Cards.ConsTroll.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
-                                         Cards.LameSpy.clone(),
+    new Card(Cards.CorruptPolitician, 1,1,1,3, Card.ASSET, Card.AGENT),
+    new Card(Cards.CorruptPolitician, 1,1,1,3, Card.ASSET, Card.AGENT),
                                          ];
 }

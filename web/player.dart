@@ -2,18 +2,33 @@ part of game_library;
 
 class Player{
   
+  // backlink to the game object
   Game game;
+  
+  //This players name for loggin etc.
   String name;
+  
+  //Boolean info "is it my last turn"
   bool lastTurn=false;
+  
+  //Current infuence pool
   int influence=5;
   
+  //Cards in hand
   List<Card>hand=[];
+  
+  //Cards in my deck.
   List<Card>deck=[];
+  
+  //Cards in my discard
   List<Card>discard=[];
-  List<Card>inplay=[];
+  
+  //My inplay area
+  InPlay inplay;
   
   Player(Game this.game, String this.name, {int type: 0}){
     
+    this.inplay=new InPlay(this);
     
     //Choose starting deck type
     switch (type){
@@ -60,6 +75,7 @@ class Player{
   }
   
   Function playTurn(){
+    if (lastTurn==true) return null;
     
     remark("Starting turn");
     
@@ -70,31 +86,18 @@ class Player{
     
     draft();
     
-    this.influence+=influencePotential();
+    this.influence+=inplay.influencePotential();
     
     remark("ending turn with "+this.influence.toString()+" influene");
     
   }
   
-  int influencePotential(){
-    int potential=0;
-    for (Card card in this.inplay){
-      potential+=card.influence;
-      this.note(card.name+" for"+card.influence.toString());
-    }
-    return potential;
-  }
   
-  int power(){
-    int p=0;
-    for (Card card in this.inplay){
-      p+=card.power;
-    }
-    return p;
-  }
+  
+  
   
   int endpower(){
-    int p=this.power();
+    int p=inplay.power();
     for (Card card in this.hand){
       p+=card.power;
     }
@@ -119,9 +122,9 @@ class Player{
       
       
       this.hand.add(this.deck.removeLast());
-      this.note("drew "+this.hand.last.name);
         
     }
+    note ("my hand is "+hand.toString());
     
   }
   
@@ -132,13 +135,11 @@ class Player{
       Card card=this.hand[i];
       if(card.subtype==Card.LOCATION){
         this.hand.remove(card);
-        card.toPlay(this);
+        inplay.toTable(card);
         remark("Asset to play:"+card.name);
       }
       else i++;
     }
-    
-    List<Card> locationsInPlay=inplay.where((i) => i.subtype==Card.LOCATION).toList();
     
     i=0;
     while (i<this.hand.length){
@@ -146,7 +147,7 @@ class Player{
       if(card.subtype==Card.AGENT){
         this.hand.remove(card);
         int hval=10000;
-        for (Card location in locationsInPlay){
+        for (Card location in inplay.getLocations()){
           if (location.stackHeight()<hval){
             hval=location.stackHeight();
             
@@ -157,7 +158,7 @@ class Player{
           }
         }
         if (hval==10000){
-          card.toPlay(this);
+          this.inplay.toTable(card);
           remark("Agent "+card.name+" to play as a Free Agent");
         }
       }
@@ -196,7 +197,7 @@ class Player{
     double hval=-1.0;
     for (Card card in game.assetTrack){
       double cval=0.0;
-      if (this.influencePotential()<6) cval=(card.influence*2+card.power)/(card.cost+27);
+      if (inplay.influencePotential()<6) cval=(card.influence*2+card.power)/(card.cost+27);
       else cval=(card.power*2+card.veiled_power)/(card.cost+27);
       
       if (card.cost<=this.influence && cval>hval){
@@ -211,6 +212,9 @@ class Player{
   }
   
 }
+/**
+ * Helper class for cards in play (on the table or on a card on the table)
+ */
 class InPlay{
   
   List<Card> inPlay=[];
@@ -218,17 +222,51 @@ class InPlay{
   Player player;
   
   InPlay(this.player);
-  
+ 
   Function toPlay(Card card){
-    this.inPlay.add(card);
+    inPlay.add(card);
     card.owner=player;
   }
   
   Function toTable(Card card){
-    this.onTable.add(card);
+    onTable.add(card);
     toPlay(card);
   }
   
+  bool contains(Card card){
+    return inPlay.contains(card);
+  }
+  
+  Function burn(Card card){
+    if (!this.inPlay.contains(card)) throw new ArgumentError("Can not burn a card not in play");
+    
+    for (Card child in card.cardsOnCard){
+      burn(child);
+    }
+    
+    onTable.remove(card);
+    inPlay.remove(card);
+    player.discard.add(card);
+  }
+  List<Card> getLocations(){
+    return this.onTable.where((Card i) => i.subtype==Card.LOCATION).toList();
+    
+  }
+  int influencePotential(){
+    int potential=0;
+    for (Card card in this.inPlay){
+      potential+=card.influence;
+      player.note(card.name+" for"+card.influence.toString());
+    }
+    return potential;
+  }
+  int power(){
+    int p=0;
+    for (Card card in this.inPlay){
+      p+=card.power;
+    }
+    return p;
+  }
 }
 
 class RandomStrategyPlayer extends Player{
