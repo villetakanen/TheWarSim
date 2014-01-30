@@ -30,44 +30,29 @@ class Game{
   
   Function initalizePlayers(){
     this.players=[];
-    this.players.add(new Player(this, "OV"));
-    this.players.add(new Player(this, "FE", type:2));
-    this.players.add(new Player(this, "FB", type:3));
+    this.players.add(new Player(this, "OV", type:0));
+    this.players.add(new Player(this, "FE", type:1));
+    this.players.add(new Player(this, "FB", type:2));
     this.stateChange("Added players");
     
   }
   
   Function playTrough({int seed:0}){
-    this.stateChange("Playtrough with seed "+seed.toString());
-    this.random=new Random(seed);
     
-    this.initalizePlayers(); 
-    this.assetDeck=[];
-    this.assetDeck.addAll(Deck.ASSET_DECK_3P);
-    this.assetDeck.shuffle(this.random);
+    initGame();
     
     
     bool gameOver=false;
     
     while (!gameOver){
-      
-      //Assume game over
-      gameOver=true;
-      
-      //Loop players
-      for (Player current in this.players){
-        
-        this.fillDraft();
-        
-        //Play the players turn
-        current.playTurn();
-        
-        //If any of the players have turns left keep playing for more turns
-        if (!current.lastTurn) gameOver=false;
- 
-      }
+      gameOver=simTurn();
      
     }
+    
+    endGame();
+    
+  }
+  Function endGame(){
     int maxPower=0;
     Player winner=null;
     for (Player player in players){
@@ -77,6 +62,42 @@ class Game{
       }
     }
     stateChange("Winner is "+winner.name +" with "+winner.endpower().toString()+" power");
+  }
+  
+  Function initGame({int seed:0}){
+    
+    this.stateChange("Playtrough with seed "+seed.toString());
+    this.random=new Random(seed);
+    
+    this.initalizePlayers(); 
+    this.assetDeck=DeckFactory.assetDeck();
+    this.assetDeck.shuffle(this.random);
+    
+  }
+  
+  /** 
+   * Simulate single turn for all players.
+   * 
+   * Return true if this was the last turn of the game.
+   */
+  bool simTurn(){
+    //Assume game over
+    bool gameOver=true;
+    bool dominance=false;
+    
+    //Loop players
+    for (Player current in this.players){
+      
+      this.fillDraft();
+      
+      //Play the players turn
+      current.playTurn();
+      
+      //If any of the players have turns left keep playing for more
+      if (!current.lastTurn) gameOver=false;
+      
+    }
+    return gameOver || dominance;
     
   }
   

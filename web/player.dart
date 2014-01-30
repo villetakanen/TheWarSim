@@ -2,17 +2,14 @@ part of game_library;
 
 class Player{
   
-  // backlink to the game object
-  Game game;
   
-  //This players name for loggin etc.
-  String name;
+  Game game;           //Backlink to the game object
+  String name;         //This players name for loggin etc.
+  bool lastTurn=false; //Boolean info "is it my last turn"
+  bool hasDominance=false;
+  int influence=5;     //Current infuence pool, starts at 5
   
-  //Boolean info "is it my last turn"
-  bool lastTurn=false;
-  
-  //Current infuence pool
-  int influence=5;
+  InPlay inplay;       //Wrapper object for all things this player has in play
   
   //Cards in hand
   List<Card>hand=[];
@@ -23,30 +20,17 @@ class Player{
   //Cards in my discard
   List<Card>discard=[];
   
-  //My inplay area
-  InPlay inplay;
-  
   Player(Game this.game, String this.name, {int type: 0}){
     
-    this.inplay=new InPlay(this);
+    this.inplay=new InPlay(this);   //Create new in play area for this player.
     
-    //Choose starting deck type
-    switch (type){
-      case 3:
-        this.name+="/3";
-        this.initDeck(Deck.FB_STARTER);
-        break;
-      case 2:
-        this.name+="/2";
-        this.initDeck(Deck.FE_STARTER);
-        break;
-      default:
-        this.name+="/0";
-        this.initDeck(Deck.OV_STARTER);
-    }
+    this.initDecks(type);           //Initialize hand, discard and deck
     
-    this.draw();
-    this.remark("initialized");
+    this.name+="/"+type.toString(); //Add deck type to name
+    
+    this.draw();                    //Draw up to handsize
+    
+    this.remark("Initialized");
     
   }
   /**
@@ -68,10 +52,30 @@ class Player{
     game.stateChange(" ## "+this.name+" ->  "+remark, l:"note",p:"player");
   }
   
-  Function initDeck(List<Card> a){
+  /**
+   * Initialize player's decks. Called by the constructor.
+   */
+  Function initDecks(int type){
+    
+    this.hand=[];
     this.deck=[];
-      this.deck.addAll(a);
-      this.deck.shuffle(this.game.random);
+    this.discard=[];
+    
+    switch (type){
+      case 0:
+        this.deck=DeckFactory.ordoVellumStarter();
+        break;
+      case 1:
+        this.deck=DeckFactory.cultOfFenrirStarter();
+        break;
+      case 2:
+        this.deck.addAll(Deck.FB_STARTER);
+        break;
+      default:
+        throw new ArgumentError("Trying to init deck without a valid type");
+    }
+    
+    this.deck.shuffle(game.random);
    
   }
   

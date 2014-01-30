@@ -31,7 +31,7 @@ class Card{
     if (a.owner==null) throw new ArgumentError("trying to play a card on an uncontrolled card");
     a.owner.inplay.toPlay(this);
     a.cardsOnCard.add(this);
-    print(a.name+" has "+a.cardsOnCard.toString());
+    //print(a.name+" has "+a.cardsOnCard.toString());
   }
   
   /**

@@ -4,14 +4,18 @@ import 'game.dart';
 import 'dart:math';
 import 'package:angular/angular.dart';
 
+
 /**
- * Angular controller for game running
+ * Angular controller for running a game
  */
+
 @NgController(
     selector: '[game-ctrl]',
     publishAs: 'ctrl')
+
 class GameController{
-  Game game;
+ 
+  Game game; //Currently active game;
   List<Map> gamelog=[];
   List<Card> inplay=null;
   List<Card> inplay2=null;
@@ -52,18 +56,38 @@ class GameController{
       
     }
     
-    game.playTrough();
+    game.initGame(seed:seed);
     gamelog=null;
     gamelog=game.moves;
     result=game.gameState;
+    inplay=game.players[0].inplay.onTable;
+    inplay2=game.players[1].inplay.onTable;
+    inplay3=game.players[2].inplay.onTable;
+
     
   }
+  Function playTurn(){
+    if (game.simTurn()) game.endGame();
+    gamelog=game.moves;
+    result=game.gameState;
+    inplay=game.players[0].inplay.onTable;
+    inplay2=game.players[1].inplay.onTable;
+    inplay3=game.players[2].inplay.onTable;
+  }
   
+  
+  /**
+   * Workaround for unimplemented AngularDart features
+   */
   Function noteHack(bool show){
     for (var elem in querySelectorAll('.note')) { // Find all elements for this OS.
       elem.hidden = show;      // Show or hide each element.
     }
   }
+  
+  /**
+   * Workaround for unimplemented AngularDart features
+   */
   Function remarkHack(bool show){
     for (var elem in querySelectorAll('.remark')) { // Find all elements for this OS.
       elem.hidden = show;      // Show or hide each element.
