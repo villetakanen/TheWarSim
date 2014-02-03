@@ -86,6 +86,20 @@ Cards.ShadowPlay.clone()
     return starter;  
   }
   
+  static List<Card> F_BStarter(){
+    List<Card> starter=[
+      new Card("Operator",             1,0,0,9, Card.ACTION, Card.EVENT),
+      new Card("Protocol Zero",        0,2,1,9, Card.ACTION, Card.EVENT),
+      new Card("Zürich",               0,2,0,9, Card.ACTION, Card.EVENT),
+      new Card("Hong Kong",            2,1,0,9, Card.ACTION, Card.EVENT),
+      new Card("Liaison",              2,0,1,9, Card.ACTION, Card.EVENT),
+      new Card("Free Market",          1,0,0,9, Card.ACTION, Card.EVENT),
+      new Card("Hypertech Protocol",   0,1,1,9, Card.ACTION, Card.EVENT),
+      new Card("SecOps",               0,2,0,9, Card.ACTION, Card.EVENT),
+      new Card("Protocol One",         1,1,0,9, Card.ACTION, Card.EVENT),
+      new Card("Protocol Two",         0,1,0,9, Card.ACTION, Card.EVENT),];
+    return starter;
+  }
   
   static List<Card> assetDeck(){
     List<Card> assets=[
@@ -106,18 +120,4 @@ Cards.ShadowPlay.clone()
                        new Card(Cards.Warsaw,            1,2,0,6, Card.ASSET, Card.LOCATION),];
     return assets;
   }
-}
-
-class Deck{
-
-                                      
-  static final List<Card> FB_STARTER=[
-                                      Cards.SecOps.clone(),
-                                      Cards.ProtocolZero.clone(),
-                                      Cards.HongKong.clone() ,
-                                      Cards.Operator.clone(),
-                                      ];
-  
-    
-                                     
 }

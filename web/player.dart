@@ -69,7 +69,7 @@ class Player{
         this.deck=DeckFactory.cultOfFenrirStarter();
         break;
       case 2:
-        this.deck.addAll(Deck.FB_STARTER);
+        this.deck=DeckFactory.F_BStarter();
         break;
       default:
         throw new ArgumentError("Trying to init deck without a valid type");
