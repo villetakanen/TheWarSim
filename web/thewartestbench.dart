@@ -1,7 +1,7 @@
 import 'dart:html';
 //import 'dart:async';
 import 'game.dart';
-import 'dart:math';
+//import 'dart:math';
 import 'package:angular/angular.dart';
 
 
@@ -16,38 +16,25 @@ import 'package:angular/angular.dart';
 class GameController{
  
   Game game; //Currently active game;
-  List<Map> gamelog=[];
-  List<Card> inplay=null;
-  List<Card> inplay2=null;
-  List<Card> inplay3=null;
-  String result;
-  List<Strategy> strategies;
-  
+  bool gameActive=false;
+  String gameState="";
+    
   GameController(){
-    strategies=[new Strategy("-- default --"),
-                new Strategy("Random Decicions")
-                ];
-    
-    game=new Game();
-    
-    game.playTrough(seed:0);//new Random().nextInt(27000));
-    
-    //gamelog=game.moves.where((Map i) => i["level"]!="note").toList();
-    gamelog=game.moves;
-    result=game.gameState;
-    inplay=game.players[0].inplay.onTable;
-    inplay2=game.players[1].inplay.onTable;
-    inplay3=game.players[2].inplay.onTable;
 
   }
   
-  
-  
-  Function setStrategy(int player, Strategy strategy){
-    
+  void initGame({int seed:0}){
+    game=new Game(seed:seed);
+    gameActive=true;
+    this.gameState=game.gameState;
   }
   
-  Function runWith({int seed}){
+  
+  /*Function setStrategy(int player, Strategy strategy){
+    
+  }*/
+  
+  /*Function runWith({int seed}){
     Game game=new Game();
     
     if (seed==null){
@@ -65,14 +52,15 @@ class GameController{
     inplay3=game.players[2].inplay.onTable;
 
     
-  }
+  }*/
   Function playTurn(){
     if (game.simTurn()) game.endGame();
-    gamelog=game.moves;
-    result=game.gameState;
-    inplay=game.players[0].inplay.onTable;
-    inplay2=game.players[1].inplay.onTable;
-    inplay3=game.players[2].inplay.onTable;
+    this.gameState=game.gameState;
+    //gamelog=game.moves;
+    //result=game.gameState;
+    //inplay=game.players[0].inplay.onTable;
+    //inplay2=game.players[1].inplay.onTable;
+    //inplay3=game.players[2].inplay.onTable;
   }
   
   
@@ -94,6 +82,8 @@ class GameController{
     }
   }
 }
+
+
 class Strategy{
   String name;
   Strategy(this.name);

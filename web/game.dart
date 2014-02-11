@@ -14,16 +14,33 @@ class Game{
   List<Player> players=[];
   List<Map> moves=[];
   List<Card> assetTrack=[];
-  List<Card> assetDeck=[];
+  Deck assetDeck=null;
+  List<Card> actionTrack=[];
+  Deck actionDeck=null;
   
   Random random=null;
   
-  Game(){
-    stateChange("initialized");
+  Game({int seed:0}){
+    
+    //Init game object with given seed 
+    this.random=new Random(seed);
+    
+    //Player initialization:
+    this.initalizePlayers();
+    
+    //Init decks.
+    this.assetDeck=DeckFactory.assetDeck();
+    this.assetDeck.shuffle(this.random);
+    
+    this.actionDeck=DeckFactory.actionDeck();
+    this.actionDeck.shuffle(this.random);
+    
+    stateChange("Initialized with seed "+seed.toString());   
+    
   }
   
   Function stateChange(String state,{String p:"Game", String l:""}){
-    this.gameState=state+"  -- "+movecount.toString();
+    this.gameState=state;
     movecount++;
     this.moves.add({"move":movecount, "gamestate":state, "player":p, "level":l});
   }
@@ -66,12 +83,8 @@ class Game{
   
   Function initGame({int seed:0}){
     
-    this.stateChange("Playtrough with seed "+seed.toString());
-    this.random=new Random(seed);
     
-    this.initalizePlayers(); 
-    this.assetDeck=DeckFactory.assetDeck();
-    this.assetDeck.shuffle(this.random);
+    
     
   }
   
@@ -103,7 +116,7 @@ class Game{
   
  
   Function fillDraft(){
-    while(this.assetTrack.length<4&&this.assetDeck.isNotEmpty){
+    while(this.assetTrack.length<4&&!this.assetDeck.isEmpty()){
       this.assetTrack.add(this.assetDeck.removeLast());
     }
   }

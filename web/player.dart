@@ -12,13 +12,13 @@ class Player{
   InPlay inplay;       //Wrapper object for all things this player has in play
   
   //Cards in hand
-  List<Card>hand=[];
+  Deck hand;
   
   //Cards in my deck.
-  List<Card>deck=[];
+  Deck deck;
   
   //Cards in my discard
-  List<Card>discard=[];
+  Deck discard;
   
   Player(Game this.game, String this.name, {int type: 0}){
     
@@ -57,9 +57,9 @@ class Player{
    */
   Function initDecks(int type){
     
-    this.hand=[];
-    this.deck=[];
-    this.discard=[];
+    //Init hand and discard with empty lists.
+    this.hand=new Deck([]);
+    this.discard=new Deck([]);
     
     switch (type){
       case 0:
@@ -89,6 +89,8 @@ class Player{
     
     playAssets();
     
+    playActions();
+    
     draft();
     
     this.influence+=inplay.influencePotential();
@@ -103,7 +105,7 @@ class Player{
   
   int endpower(){
     int p=inplay.power();
-    for (Card card in this.hand){
+    for (Card card in this.hand.cards){
       p+=card.power;
     }
     return p;
@@ -111,14 +113,14 @@ class Player{
   
   Function draw(){
    
-    while (!(this.deck.isEmpty 
-        && this.discard.isEmpty)
-        && this.hand.length<5){
+    while (!(this.deck.isEmpty() 
+        && this.discard.isEmpty())
+        && this.hand.length()<5){
       
-      if (this.deck.isEmpty){
+      if (this.deck.isEmpty()){
         this.note("Shuffling the discard to deck");
         
-        List <Card> temp=this.deck;
+        Deck temp=this.deck;
         this.deck=this.discard;
         this.discard=temp;
         
@@ -136,10 +138,10 @@ class Player{
   Function playAssets(){
     
     int i=0;
-    while (i<this.hand.length){
-      Card card=this.hand[i];
+    while (i<this.hand.length()){
+      Card card=this.hand.cards[i];
       if(card.subtype==Card.LOCATION){
-        this.hand.remove(card);
+        this.hand.pop(card);
         inplay.toTable(card);
         remark("Asset to play:"+card.name);
       }
@@ -148,11 +150,11 @@ class Player{
     
     //Go tr
     i=0;
-    while (i<this.hand.length){
-      Card card=this.hand[i];
+    while (i<this.hand.length()){
+      Card card=this.hand.cards[i];
       Card target=null;
       if(card.subtype==Card.AGENT){
-        this.hand.remove(card);
+        this.hand.pop(card);
         int hval=10000;
         for (Card location in inplay.getLocations()){
           if (location.stackHeight()<hval){
@@ -173,9 +175,19 @@ class Player{
     
   }
   
+  Function playActions(){
+    //Check if we need influence:
+    if (this.influence<10 || this.inplay.influencePotential()<6){
+      if (this.inplay.contains(Cards.Zero)){
+        this.inplay.burn(Cards.Zero);
+        this.influence+=3;
+      }
+    }
+  }
+  
   Function draft(){
     
-    if(this.game.assetDeck.isEmpty){
+    if(this.game.assetDeck.isEmpty()){
       this.lastTurn=true;
       return null;
     }
@@ -223,13 +235,16 @@ class Player{
  */
 class InPlay{
   
-  List<Card> inPlay=[];
+  Deck inPlay=null;
   List<Card> onTable=[];
   Player player;
   
-  InPlay(this.player);
+  InPlay(this.player){
+    inPlay=new Deck([]);
+  }
  
   Function toPlay(Card card){
+    if (card==null) throw new ArgumentError("Can not put null to Play");
     inPlay.add(card);
     card.owner=player;
   }
@@ -251,7 +266,7 @@ class InPlay{
     }
     
     onTable.remove(card);
-    inPlay.remove(card);
+    inPlay.pop(card);
     player.discard.add(card);
   }
   List<Card> getLocations(){
@@ -260,14 +275,14 @@ class InPlay{
   }
   int influencePotential(){
     int potential=0;
-    for (Card card in this.inPlay){
+    for (Card card in this.inPlay.cards){
       potential+=card.influence;
     }
     return potential;
   }
   int power(){
     int p=0;
-    for (Card card in this.inPlay){
+    for (Card card in this.inPlay.cards){
       p+=card.power;
     }
     return p;
@@ -283,7 +298,7 @@ class RandomStrategyPlayer extends Player{
    
   Card chooseDraftAsset(){
     note("Picking up a random card");
-    if (this.game.assetDeck.isEmpty) return null;
+    if (this.game.assetDeck.isEmpty()) return null;
     return this.game.assetTrack[this.game.random.nextInt(this.game.assetTrack.length-1)];
   }
 
