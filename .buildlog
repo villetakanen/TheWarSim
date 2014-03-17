@@ -870,3 +870,8 @@ build.dart --machine --changed=web\thewartestbench.dart
 
 build.dart finished [2241 ms]
 
+---
+build.dart --machine --changed=web\card.dart --changed=web\player.dart
+
+build.dart finished [1696 ms]
+

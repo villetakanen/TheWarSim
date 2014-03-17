@@ -1,4 +1,5 @@
 library CardLibrary;
+
 import 'game.dart';
 
 class Card{
