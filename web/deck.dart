@@ -89,14 +89,14 @@ Cards.ShadowPlay.clone()
   
   static Deck F_BStarter(){
     List<Card> starter=[
-      new Card("Operator",             1,0,0,9, Card.ACTION, Card.EVENT),
+      new Card("Operator",             1,0,0,9, Card.ASSET, Card.AGENT),
       Cards.Zero.clone(),
-      new Card("Zürich",               0,2,0,9, Card.ACTION, Card.EVENT),
-      new Card("Hong Kong",            2,1,0,9, Card.ACTION, Card.EVENT),
-      new Card("Liaison",              2,0,1,9, Card.ACTION, Card.EVENT),
+      new Card("Zürich",               0,2,0,9, Card.ASSET, Card.LOCATION),
+      new Card("Hong Kong",            2,1,0,9, Card.ASSET, Card.LOCATION),
+      new Card("Liaison",              2,0,1,9, Card.ASSET, Card.AGENT),
       new Card("Free Market",          1,0,0,9, Card.ACTION, Card.EVENT),
       new Card("Hypertech Protocol",   0,1,1,9, Card.ACTION, Card.EVENT),
-      new Card("SecOps",               0,2,0,9, Card.ACTION, Card.EVENT),
+      new Card("SecOps",               0,2,0,9, Card.ASSET, Card.AGENT),
       new Card("Protocol One",         1,1,0,9, Card.ACTION, Card.EVENT),
       new Card("Protocol Two",         0,1,0,9, Card.ACTION, Card.EVENT),];
     return new Deck(starter);
@@ -136,6 +136,9 @@ class Deck{
   Deck(this.cards);
   
   bool contains(Card c){
+    for (Card i in this.cards){
+      if(c.name==i.name) return true; 
+    }
     return false;
   }
   

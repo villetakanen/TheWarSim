@@ -1,0 +1,872 @@
+---
+build.dart --machine --changed=web\index.html --removed=web\thewartestbench.html
+
+build.dart finished [4682 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [8204 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [8418 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [9008 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [12252 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [12150 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [10105 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1322 ms]
+
+---
+build.dart --machine --changed=web\index.html
+[{"method":"warning","params":{"file":"web/index.html","message":"Invalid character in attribute name","line":9,"charStart":256,"charEnd":300}}]
+[{"method":"warning","params":{"file":"web/index.html","message":"Dropped duplicate attribute on tag.","line":9,"charStart":256,"charEnd":309}}]
+[{"method":"warning","params":{"file":"web/index.html","message":"Dropped duplicate attribute on tag.","line":9,"charStart":256,"charEnd":343}}]
+build.dart finished [1368 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+[{"method":"warning","params":{"file":"web/index.html","message":"Invalid character in attribute name","line":9,"charStart":256,"charEnd":300}}]
+[{"method":"warning","params":{"file":"web/index.html","message":"Dropped duplicate attribute on tag.","line":9,"charStart":256,"charEnd":309}}]
+[{"method":"warning","params":{"file":"web/index.html","message":"Dropped duplicate attribute on tag.","line":9,"charStart":256,"charEnd":343}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (template). Ignored.","line":4,"charStart":84,"charEnd":95}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (polymer-element). Ignored.","line":7,"charStart":167,"charEnd":185}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Expected closing tag. Unexpected end of file.","line":2,"charStart":39,"charEnd":49}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (template). Ignored.","line":4,"charStart":84,"charEnd":95}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (polymer-element). Ignored.","line":7,"charStart":167,"charEnd":185}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Expected closing tag. Unexpected end of file.","line":2,"charStart":39,"charEnd":49}}]
+build.dart finished [1345 ms]
+
+---
+build.dart --machine --changed=web\index.html
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (template). Ignored.","line":4,"charStart":84,"charEnd":95}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (polymer-element). Ignored.","line":7,"charStart":167,"charEnd":185}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Expected closing tag. Unexpected end of file.","line":2,"charStart":39,"charEnd":49}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (template). Ignored.","line":4,"charStart":84,"charEnd":95}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (polymer-element). Ignored.","line":7,"charStart":167,"charEnd":185}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Expected closing tag. Unexpected end of file.","line":2,"charStart":39,"charEnd":49}}]
+build.dart finished [1384 ms]
+
+---
+build.dart --machine --changed=web\index.html
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (template). Ignored.","line":4,"charStart":84,"charEnd":95}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (polymer-element). Ignored.","line":7,"charStart":167,"charEnd":185}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Expected closing tag. Unexpected end of file.","line":2,"charStart":39,"charEnd":49}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (template). Ignored.","line":4,"charStart":84,"charEnd":95}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (polymer-element). Ignored.","line":7,"charStart":167,"charEnd":185}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Expected closing tag. Unexpected end of file.","line":2,"charStart":39,"charEnd":49}}]
+build.dart finished [1930 ms]
+
+---
+build.dart --machine --changed=web\index.html
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (template). Ignored.","line":4,"charStart":84,"charEnd":95}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (polymer-element). Ignored.","line":7,"charStart":167,"charEnd":185}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Expected closing tag. Unexpected end of file.","line":2,"charStart":39,"charEnd":49}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (template). Ignored.","line":4,"charStart":84,"charEnd":95}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (polymer-element). Ignored.","line":7,"charStart":167,"charEnd":185}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Expected closing tag. Unexpected end of file.","line":2,"charStart":39,"charEnd":49}}]
+build.dart finished [1329 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (template). Ignored.","line":5,"charStart":85,"charEnd":96}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (polymer-element). Ignored.","line":10,"charStart":172,"charEnd":190}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Expected closing tag. Unexpected end of file.","line":3,"charStart":40,"charEnd":50}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (template). Ignored.","line":5,"charStart":85,"charEnd":96}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (polymer-element). Ignored.","line":10,"charStart":172,"charEnd":190}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Expected closing tag. Unexpected end of file.","line":3,"charStart":40,"charEnd":50}}]
+build.dart finished [1305 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (template). Ignored.","line":8,"charStart":156,"charEnd":167}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (polymer-element). Ignored.","line":13,"charStart":243,"charEnd":261}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Expected closing tag. Unexpected end of file.","line":6,"charStart":111,"charEnd":121}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (template). Ignored.","line":8,"charStart":156,"charEnd":167}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Unexpected end tag (polymer-element). Ignored.","line":13,"charStart":243,"charEnd":261}}]
+[{"method":"warning","params":{"file":"web/player_info.html","message":"Expected closing tag. Unexpected end of file.","line":6,"charStart":111,"charEnd":121}}]
+build.dart finished [1331 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [1300 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1310 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1323 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1432 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1441 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1279 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1308 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1266 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1323 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1290 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1295 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1269 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1331 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1335 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1327 ms]
+
+---
+build.dart --machine --changed=web\index.html
+
+build.dart finished [1286 ms]
+
+---
+build.dart --machine --changed=web\index.html
+
+build.dart finished [1309 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [2322 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1982 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [2598 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [1931 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [2248 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [2288 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [1722 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1844 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [2311 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [2254 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [2746 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [2204 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1971 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [2676 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [2585 ms]
+
+---
+build.dart --machine --changed=web\game.dart
+
+build.dart finished [2712 ms]
+
+---
+build.dart --machine --changed=web\game.dart
+
+build.dart finished [2686 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [2180 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [2773 ms]
+
+---
+build.dart --machine --changed=web\player.dart
+
+build.dart finished [3519 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [1313 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1425 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1299 ms]
+
+---
+build.dart --machine --changed=web\game.dart
+
+build.dart finished [1386 ms]
+
+---
+build.dart --machine --changed=web\card.dart
+
+build.dart finished [1276 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1622 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1288 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1280 ms]
+
+---
+build.dart --machine --changed=web\card.dart
+
+build.dart finished [1269 ms]
+
+---
+build.dart --machine --changed=web\card.dart
+
+build.dart finished [1459 ms]
+
+---
+build.dart --machine --changed=web\card.dart
+
+build.dart finished [1343 ms]
+
+---
+build.dart --machine --changed=web\card.dart
+
+build.dart finished [1354 ms]
+
+---
+build.dart --machine --changed=web\card.dart
+
+build.dart finished [1280 ms]
+
+---
+build.dart --machine --changed=web\game.dart
+
+build.dart finished [1316 ms]
+
+---
+build.dart --machine --changed=web\game.dart
+
+build.dart finished [1400 ms]
+
+---
+build.dart --machine --changed=web\card.dart
+
+build.dart finished [1357 ms]
+
+---
+build.dart --machine --changed=web\card.dart
+
+build.dart finished [1335 ms]
+
+---
+build.dart --machine --changed=web\card.dart
+
+build.dart finished [1558 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1495 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1399 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1652 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1325 ms]
+
+---
+build.dart --machine --changed=web\game.dart
+
+build.dart finished [1372 ms]
+
+---
+build.dart --machine --changed=web\player.dart
+
+build.dart finished [1313 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [1281 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1338 ms]
+
+---
+build.dart --machine --changed=web\index.html
+
+build.dart finished [1298 ms]
+
+---
+build.dart --machine --changed=web\card.dart
+
+build.dart finished [1357 ms]
+
+---
+build.dart --machine --changed=web\card.dart
+
+build.dart finished [1417 ms]
+
+---
+build.dart --machine --changed=web\card.dart
+
+build.dart finished [1339 ms]
+
+---
+build.dart --machine --changed=web\game.dart
+
+build.dart finished [1433 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1366 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1355 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1309 ms]
+
+---
+build.dart --machine --changed=web\game.dart
+
+build.dart finished [1464 ms]
+
+---
+build.dart --machine --changed=web\game.dart
+
+build.dart finished [1379 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [1359 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.css
+
+build.dart finished [1360 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.css
+
+build.dart finished [1310 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [1323 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.css
+
+build.dart finished [1276 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.css
+
+build.dart finished [2133 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.css
+
+build.dart finished [1379 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.css
+
+build.dart finished [1396 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [1405 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [1308 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [1331 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [1379 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [1956 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [1269 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+
+build.dart finished [1309 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1394 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [1555 ms]
+
+---
+build.dart --machine --changed=web\player_info.html
+
+build.dart finished [1272 ms]
+
+---
+build.dart --machine --changed=web\game_info.html
+
+build.dart finished [1279 ms]
+
+---
+build.dart --machine --changed=web\game_info.html
+
+build.dart finished [1253 ms]
+
+---
+build.dart --machine --changed=web\game_info.html
+[{"method":"error","params":{"file":"web/game_info.html","message":"Invalid name \"game_info\". Custom element names must have at least one dash and can't be any of the following names: annotation-xml, color-profile, font-face, font-face-src, font-face-uri, font-face-format, font-face-name, missing-glyph.","line":4,"charStart":71,"charEnd":105}}]
+build failed with errors: {Transform polymer (Linter) on TheWarTestbench|web/game_info.html threw error: Invalid name "game_info". Custom element names must have at least one dash and can't be any of the following names: annotation-xml, color-profile, font-face, font-face-src, font-face-uri, font-face-format, font-face-name, missing-glyph.}
+build.dart finished [1377 ms]
+
+---
+build.dart --machine --changed=web\game_info.html
+[{"method":"error","params":{"file":"web/game_info.html","message":"Invalid name \"game_info\". Custom element names must have at least one dash and can't be any of the following names: annotation-xml, color-profile, font-face, font-face-src, font-face-uri, font-face-format, font-face-name, missing-glyph.","line":4,"charStart":71,"charEnd":105}}]
+build failed with errors: {Transform polymer (Linter) on TheWarTestbench|web/game_info.html threw error: Invalid name "game_info". Custom element names must have at least one dash and can't be any of the following names: annotation-xml, color-profile, font-face, font-face-src, font-face-uri, font-face-format, font-face-name, missing-glyph.}
+build.dart finished [1307 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+[{"method":"error","params":{"file":"web/game_info.html","message":"Invalid name \"game_info\". Custom element names must have at least one dash and can't be any of the following names: annotation-xml, color-profile, font-face, font-face-src, font-face-uri, font-face-format, font-face-name, missing-glyph.","line":4,"charStart":71,"charEnd":105}}]
+build failed with errors: {Transform polymer (Linter) on TheWarTestbench|web/game_info.html threw error: Invalid name "game_info". Custom element names must have at least one dash and can't be any of the following names: annotation-xml, color-profile, font-face, font-face-src, font-face-uri, font-face-format, font-face-name, missing-glyph.}
+build.dart finished [1393 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+[{"method":"error","params":{"file":"web/game_info.html","message":"Invalid name \"game_info\". Custom element names must have at least one dash and can't be any of the following names: annotation-xml, color-profile, font-face, font-face-src, font-face-uri, font-face-format, font-face-name, missing-glyph.","line":4,"charStart":71,"charEnd":105}}]
+build failed with errors: {Transform polymer (Linter) on TheWarTestbench|web/game_info.html threw error: Invalid name "game_info". Custom element names must have at least one dash and can't be any of the following names: annotation-xml, color-profile, font-face, font-face-src, font-face-uri, font-face-format, font-face-name, missing-glyph.}
+build.dart finished [1249 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+[{"method":"error","params":{"file":"web/game_info.html","message":"Invalid name \"game_info\". Custom element names must have at least one dash and can't be any of the following names: annotation-xml, color-profile, font-face, font-face-src, font-face-uri, font-face-format, font-face-name, missing-glyph.","line":4,"charStart":71,"charEnd":105}}]
+build failed with errors: {Transform polymer (Linter) on TheWarTestbench|web/game_info.html threw error: Invalid name "game_info". Custom element names must have at least one dash and can't be any of the following names: annotation-xml, color-profile, font-face, font-face-src, font-face-uri, font-face-format, font-face-name, missing-glyph.}
+build.dart finished [1254 ms]
+
+---
+build.dart --machine --changed=web\game_info.html
+[{"method":"error","params":{"file":"web/game_info.html","message":"Invalid name \"game_info\". Custom element names must have at least one dash and can't be any of the following names: annotation-xml, color-profile, font-face, font-face-src, font-face-uri, font-face-format, font-face-name, missing-glyph.","line":4,"charStart":71,"charEnd":105}}]
+build failed with errors: {Transform polymer (Linter) on TheWarTestbench|web/game_info.html threw error: Invalid name "game_info". Custom element names must have at least one dash and can't be any of the following names: annotation-xml, color-profile, font-face, font-face-src, font-face-uri, font-face-format, font-face-name, missing-glyph.}
+build.dart finished [1246 ms]
+
+---
+build.dart --machine --changed=web\game_info.html
+[{"method":"error","params":{"file":"web/game_info.html","message":"Invalid name \"game_info\". Custom element names must have at least one dash and can't be any of the following names: annotation-xml, color-profile, font-face, font-face-src, font-face-uri, font-face-format, font-face-name, missing-glyph.","line":4,"charStart":71,"charEnd":105}}]
+build failed with errors: {Transform polymer (Linter) on TheWarTestbench|web/game_info.html threw error: Invalid name "game_info". Custom element names must have at least one dash and can't be any of the following names: annotation-xml, color-profile, font-face, font-face-src, font-face-uri, font-face-format, font-face-name, missing-glyph.}
+build.dart finished [1263 ms]
+
+---
+build.dart --machine --changed=web\game_info.html
+
+build.dart finished [1255 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1252 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1246 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1279 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1270 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1359 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1363 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1352 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1275 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1264 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1273 ms]
+
+---
+build.dart --machine --changed=web\index.html
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1158,"charEnd":1169}}]
+build.dart finished [1273 ms]
+
+---
+build.dart --machine --changed=web\index.html
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1158,"charEnd":1184}}]
+build.dart finished [1376 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1158,"charEnd":1184}}]
+build.dart finished [1326 ms]
+
+---
+build.dart --machine --changed=web\index.html
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1158,"charEnd":1183}}]
+build.dart finished [1249 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1158,"charEnd":1183}}]
+build.dart finished [1328 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1158,"charEnd":1183}}]
+build.dart finished [1284 ms]
+
+---
+build.dart --machine --changed=web\game_info.html
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1158,"charEnd":1183}}]
+build.dart finished [1272 ms]
+
+---
+build.dart --machine --changed=web\game_info.dart
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1158,"charEnd":1183}}]
+build.dart finished [1299 ms]
+
+---
+build.dart --machine --changed=web\player_info.dart
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1158,"charEnd":1183}}]
+build.dart finished [1603 ms]
+
+---
+build.dart --machine --changed=web\game_info.dart
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1158,"charEnd":1183}}]
+build.dart finished [2020 ms]
+
+---
+build.dart --machine --changed=web\game_info.dart
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1158,"charEnd":1183}}]
+build.dart finished [1806 ms]
+
+---
+build.dart --machine --changed=web\game_info.html
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1158,"charEnd":1183}}]
+build.dart finished [1938 ms]
+
+---
+build.dart --machine --changed=web\index.html
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1158,"charEnd":1183}}]
+build.dart finished [1747 ms]
+
+---
+build.dart --machine --changed=web\index.html
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1159,"charEnd":1184}}]
+build.dart finished [1897 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1159,"charEnd":1184}}]
+build.dart finished [1251 ms]
+
+---
+build.dart --machine --changed=web\game_info.dart
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1159,"charEnd":1184}}]
+build.dart finished [1334 ms]
+
+---
+build.dart --machine --changed=web\index.html
+[{"method":"warning","params":{"file":"web/index.html","message":"definition for Polymer element with tag name \"game-info\" not found.","line":50,"charStart":1160,"charEnd":1185}}]
+build.dart finished [1263 ms]
+
+---
+build.dart --machine --changed=web\index.html
+
+build.dart finished [1240 ms]
+
+---
+build.dart --machine --changed=web\game_info.html
+
+build.dart finished [1293 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1266 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1322 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1408 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1384 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [1346 ms]
+
+---
+build.dart --machine --changed=web\player.dart
+
+build.dart finished [1346 ms]
+
+---
+build.dart --machine --changed=web\player.dart
+
+build.dart finished [1507 ms]
+
+---
+build.dart --machine --changed=web\player.dart
+
+build.dart finished [1277 ms]
+
+---
+build.dart --machine --changed=web\player.dart
+
+build.dart finished [1279 ms]
+
+---
+build.dart --machine --changed=web\player.dart
+
+build.dart finished [5348 ms]
+
+---
+build.dart --machine --changed=web\player.dart
+
+build.dart finished [2277 ms]
+
+---
+build.dart --machine --changed=web\player.dart
+
+build.dart finished [2267 ms]
+
+---
+build.dart --machine --changed=web\player.dart
+
+build.dart finished [2318 ms]
+
+---
+build.dart --machine --changed=web\deck.dart
+
+build.dart finished [1458 ms]
+
+---
+build.dart --machine --changed=web\deck.dart
+
+build.dart finished [1447 ms]
+
+---
+build.dart --machine --changed=web\deck.dart
+
+build.dart finished [1675 ms]
+
+---
+build.dart --machine --changed=web\deck.dart
+
+build.dart finished [1326 ms]
+
+---
+build.dart --machine --changed=web\deck.dart
+
+build.dart finished [1640 ms]
+
+---
+build.dart --machine --full
+
+build.dart finished [1975 ms]
+
+---
+build.dart --machine --full
+
+build.dart finished [2717 ms]
+
+---
+build.dart --machine --changed=web\thewartestbench.dart
+
+build.dart finished [2241 ms]
+

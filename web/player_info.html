@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+      
+<!-- Use polymer-element instead of element -->
+<polymer-element name="player-info">
+
+  <template>
+    <p>Influence: {{influence}}</p>
+    <p>Potential (calculated): {{influencePotential}}</p>
+    <p>Power: {{power}}</p>
+    <h4>Hand</h4>
+    
+    <ol class="cards">
+    <template repeat="{{card in hand}}">
+        <style>
+          .card-info {
+            color: #5A87F2;
+            font-style: italic;
+          }
+        </style>
+        <li class="card-info">{{card.name}}</li>
+      </template>
+    </ol>
+    
+    <ol class="cards">
+    <template repeat="{{card in play}}">
+        <style>
+          .card-info2 {
+            color: #E3B429;
+            font-style: italic;
+          }
+        </style>
+        <li class="card-info2">{{card.name}}</li>
+      </template>
+    </ol>
+    
+    
+  </template>
+  
+  <script type="application/dart"
+    src="player_info.dart"></script>
+
+</polymer-element>

@@ -1,11 +1,13 @@
 library game_library;
 
 import 'dart:math';
+//import 'package:polymer/polymer.dart';
 //import 'thewartestbench.dart';
 
-part 'card.dart';
+import 'card.dart';
 part 'deck.dart';
 part 'player.dart';
+//part 'player_info.dart';
 
 class Game{
  
@@ -47,9 +49,9 @@ class Game{
   
   Function initalizePlayers(){
     this.players=[];
-    this.players.add(new Player(this, "OV", type:0));
-    this.players.add(new Player(this, "FE", type:1));
-    this.players.add(new Player(this, "FB", type:2));
+    this.players.add(new Player(this, "ov", type:0));
+    this.players.add(new Player(this, "fe", type:1));
+    this.players.add(new Player(this, "fb", type:2));
     this.stateChange("Added players");
     
   }

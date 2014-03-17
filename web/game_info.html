@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+      
+<!-- Use polymer-element instead of element -->
+<polymer-element name="game-info">
+
+  <template>
+
+    <ul class="game_info">
+    <template repeat="{{line in log}}">
+        <li>{{line}}</li>
+      </template>
+    </ul>
+    
+  </template>
+  
+  <script type="application/dart"
+     src="game_info.dart"></script>
+
+</polymer-element>

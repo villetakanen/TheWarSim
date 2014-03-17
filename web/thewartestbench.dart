@@ -1,9 +1,11 @@
 import 'dart:html';
-//import 'dart:async';
+import 'dart:async';
 import 'game.dart';
 //import 'dart:math';
 import 'package:angular/angular.dart';
-
+import 'package:polymer/polymer.dart';
+import 'player_info.dart';
+import 'game_info.dart';
 
 /**
  * Angular controller for running a game
@@ -27,40 +29,39 @@ class GameController{
     game=new Game(seed:seed);
     gameActive=true;
     this.gameState=game.gameState;
+    refreshPlayerInfo();
   }
   
-  
-  /*Function setStrategy(int player, Strategy strategy){
-    
-  }*/
-  
-  /*Function runWith({int seed}){
-    Game game=new Game();
-    
-    if (seed==null){
-      int seed=new Random().nextInt(10000);
-      game.stateChange("controller forcing seed to "+seed.toString());
+  void refreshPlayerInfo(){
+    for (Player player in this.game.players){
+      
+      String info_id='#'+player.name+'pi';
+      PlayerInfo info = querySelector(info_id);
+      
+      info.influence=player.influence;
+      info.influencePotential=player.inplay.influencePotential();
+      info.power=player.inplay.power();
+      
+      info.hand=player.hand.cards.toList(growable: false);
+      info.play=player.inplay.inPlay.cards.toList(growable: false);
       
     }
     
-    game.initGame(seed:seed);
-    gamelog=null;
-    gamelog=game.moves;
-    result=game.gameState;
-    inplay=game.players[0].inplay.onTable;
-    inplay2=game.players[1].inplay.onTable;
-    inplay3=game.players[2].inplay.onTable;
-
+    GameInfo game_i = querySelector('#game_log');
+    List<String> l=[];
+    game.moves.forEach((move) => l.add(move['player']+" :: "+move['gamestate']));
+    game_i.log=l.reversed.toList();
     
-  }*/
+    scheduleMicrotask(Observable.dirtyCheck);
+  }
+  
+  
+  
   Function playTurn(){
     if (game.simTurn()) game.endGame();
     this.gameState=game.gameState;
-    //gamelog=game.moves;
-    //result=game.gameState;
-    //inplay=game.players[0].inplay.onTable;
-    //inplay2=game.players[1].inplay.onTable;
-    //inplay3=game.players[2].inplay.onTable;
+    
+    refreshPlayerInfo();
   }
   
   
@@ -92,7 +93,7 @@ class Strategy{
 class MyAppModule extends Module {
   MyAppModule() {
     type(GameController);
-    //type(Profiler, implementedBy: Profiler); // comment out to enable profiling
+
   }
 }
 
@@ -100,6 +101,8 @@ class MyAppModule extends Module {
  * 
  */
 void main() {
+  
+  initPolymer();
   
   //Bootstrap Angular Framework
   ngBootstrap(module: new MyAppModule());

@@ -26,7 +26,7 @@ class Player{
     
     this.initDecks(type);           //Initialize hand, discard and deck
     
-    this.name+="/"+type.toString(); //Add deck type to name
+    //this.name+="/"+type.toString(); //Add deck type to name
     
     this.draw();                    //Draw up to handsize
     
@@ -84,24 +84,20 @@ class Player{
     
     remark("Starting turn");
     
-    //Fill hand up to ~5 cards
-    draw();
-    
     playAssets();
     
     playActions();
     
     draft();
-    
+
     this.influence+=inplay.influencePotential();
+    
+    //Fill hand up to ~5 cards//Fill hand up to ~5 cards
+    draw();
     
     remark("ending turn with "+this.influence.toString()+" influene");
     
   }
-  
-  
-  
-  
   
   int endpower(){
     int p=inplay.power();
@@ -127,11 +123,12 @@ class Player{
         this.deck.shuffle(this.game.random);
       }
       
-      
-      this.hand.add(this.deck.removeLast());
+      Card n=this.deck.removeLast();
+      this.hand.add(n);
+      note("Drew "+n.name);
         
     }
-    note ("my hand is "+hand.toString());
+    //note ("my hand is "+hand.toString());
     
   }
   

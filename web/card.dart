@@ -1,4 +1,5 @@
-part of game_library;
+library CardLibrary;
+import 'game.dart';
 
 class Card{
   
